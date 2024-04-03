@@ -34,6 +34,8 @@ app.use(express.urlencoded({ extended: false }));
 
 // built-in middleware for json 
 app.use(express.json());
+app.set('view engine', 'ejs');
+app.set('views', path.join(__dirname, 'view'));
 
 // Set up session middleware
 app.use(session({
@@ -82,13 +84,11 @@ app.use('/auth', require('./routes/Auth'));
 app.use('/register', require('./routes/Register'));
 app.use('/order', require('./routes/Order'));
 app.use('/queue', require('./routes/Queue'));
+app.use('/queueHour', require('./routes/QueueHour'));
 app.use('/confirm', require('./routes/Confirm'));
 app.use('/logout', require('./routes/LogOut'));
 
-app.post('/auth',passport.authenticate('local', {
-    successRedirect: './order',
-    failureRedirect: './auth',
-  }));
+
 
 
 // app.use(verifyJWT);

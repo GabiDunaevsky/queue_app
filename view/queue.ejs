@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Queue Page</title>
+</head>
+<body>
+  <h2>Queue</h2>
+  <form id="pickingTreatment" action="/queue" method="POST">
+  <div>
+    <label for="datepicker">Pick a date:</label>
+    <input type="date" id="datepicker" name="datepicker" required>
+  </div>
+  <p><%= dateObj.treatment %></p>
+  <label id="selectedDateDis"></label><br><br>
+  <button type="submit">Continue to confirm</button>
+</form>
+<script>
+    document.getElementById('datepicker').addEventListener('change', function(event) {
+      const selectedDate = event.target.value;
+      const today = new Date();
+      const selectedDateTime = new Date(selectedDate);
+      if (selectedDateTime < today) {
+        alert("Please select a date from today or in the future.");
+        event.target.value = ''; // Clear the input value
+      } else {
+        const dateParts = selectedDate.split('-');
+        const day = dateParts[2];
+        const month = dateParts[1];
+        const year = dateParts[0];
+        document.getElementById('selectedDateDis').innerText = 'Picked Date: ' + day + '/' + month + '/' + year;
+      }
+  });
+</script>
+</body>
+</html>
