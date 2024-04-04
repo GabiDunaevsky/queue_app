@@ -13,13 +13,14 @@ const connectDB = require('./config/dbConn');
 //Authintication
 const passport = require('passport');
 const session = require('express-session');
-const LocalStrategy = require('passport-local').Strategy;
 const configurePassport = require('./config/passwordAndUser');
+const serialization = require('./config/serialization');
+
 
 const PORT = process.env.PORT || 3500;
 
 // Connect to MongoDB
-// connectDB();
+connectDB();
 
 
 // Handle options credentials check - before CORS!
@@ -48,33 +49,17 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 
-//Mock user database
-const users = [
-    { id: 1, username: 'gabi', password: 'gab' }
-  ];
-
 configurePassport(passport);
 
 
 // //middleware for cookies
 // app.use(cookieParser());
 
-//serve static files
-// app.use('/', express.static(path.join(__dirname, '/public')));
+passport.serializeUser(serialization.serializeUserFunction);
+passport.deserializeUser(serialization.deserializeUserFunction);
 
-passport.serializeUser((user, done) => {
-  done(null, user.id);
-});
-
-passport.deserializeUser((id, done) => {
-  const user = users.find(u => u.id === id);
-  done(null, user);
-});
-
-
-  
-  // Serve static files from the 'views' directory
-  app.use(express.static(path.join(__dirname, 'view')));
+// Serve static files from the 'views' directory
+app.use(express.static(path.join(__dirname, 'view')));
 
 
 // routes
@@ -106,11 +91,11 @@ app.all('*', (req, res) => {
     }
 });
 
-// mongoose.connection.once('open', () => {
-//     console.log('Connected to MongoDB');
-//     app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
-// });
-app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+mongoose.connection.once('open', () => {
+    console.log('Connected to MongoDB');
+    app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+});
+//app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
 
 
 

@@ -1,11 +1,10 @@
 const express = require('express');
 const router = express.Router();
 const auth = require('../middleware/IsAuthinticated');
+const hourController = require('../controller/QueueHourController');
 
 router.route('^/$|/queueHour(.html)?')
-.get(auth.isAuthenticated, (req, res) => {
-    // res.sendFile(path.join(__dirname,'..', 'view', 'queueHoure.ejs'));
-    res.render('queueHour');
-});
+.get(auth.isAuthenticated, hourController.getAllAvailable)
+.post(hourController.storeHour);
 
 module.exports = router;

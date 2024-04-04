@@ -1,8 +1,11 @@
 const express = require('express');
 const router = express.Router();
+const regController = require('../controller/RegisterController')
 
-router.get('^/$|/register(.html)?', (req, res) => {
-    res.send("Hello register");
-});
+router.route('^/$|/register(.html)?')
+.get((req, res) => {
+    res.render('register');
+})
+.post(regController.handleNewUser);
 
 module.exports = router;
