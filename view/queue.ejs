@@ -8,7 +8,7 @@
   <form id="pickingTreatment" action="/queue" method="POST">
   <div>
     <label for="datepicker">Pick a date:</label>
-    <input type="date" id="datepicker" name="datepicker" required>
+    <input type="date" id="datepicker" name="datepicker" required oninput="checkDayOfWeek(event)">
   </div>
   <p><%= dateObj.treatment %></p>
   <label id="selectedDateDis"></label><br><br>
@@ -17,8 +17,8 @@
 <script>
     document.getElementById('datepicker').addEventListener('change', function(event) {
       const selectedDate = event.target.value;
-      const today = new Date();
-      const selectedDateTime = new Date(selectedDate);
+      const today = new Date().setHours(0, 0, 0, 0);;
+      const selectedDateTime = new Date(selectedDate).setHours(0, 0, 0, 0);
       if (selectedDateTime < today) {
         alert("Please select a date from today or in the future.");
         event.target.value = ''; // Clear the input value
@@ -30,6 +30,15 @@
         document.getElementById('selectedDateDis').innerText = 'Picked Date: ' + day + '/' + month + '/' + year;
       }
   });
+
+  function checkDayOfWeek(event) {
+    const selectedDate = new Date(event.target.value);
+    const dayOfWeek = selectedDate.getDay();
+    if (dayOfWeek === 5 || dayOfWeek === 6) { // Friday or Saturday
+        event.target.value = ''; // Clear the input value
+        alert("Please select a date from Sunday to Thursday.");
+    }
+}
 </script>
 </body>
 </html>

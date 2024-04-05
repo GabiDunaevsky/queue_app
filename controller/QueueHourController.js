@@ -1,29 +1,3 @@
-const m1 = {
-    place: "jerusalem",
-    name: "hani",
-    startTime: 9,
-    endTime: 11
-    };
-const m2 = {
-    place: "jerusalem",
-    name: "daniel",
-    startTime: 14,
-    endTime: 15
-    };
-const m3 = {
-    place: "jerusalem",
-    name: "gabi",
-    startTime: 16,
-    endTime: 17.5
-    };
-const m4 = {
-    place: "jerusalem",
-    name: "gabi",
-    startTime: 18,
-    endTime: 19.5
-    };
-
-
 const Queue = require('../model/Queue');
 
 const getAllAvailable = async (req, res) => {
@@ -34,9 +8,14 @@ const getAllAvailable = async (req, res) => {
     console.log(allQuese);
 
     let treatmentLong = dateObj.treatmentLong;
-    console.log(treatmentLong);
     let available = [];
-    for(let checkTime = 9; (checkTime + treatmentLong) <= 20; checkTime += 0.5){
+    let checkTime = 9;
+    if(currDatetoString() === dateObj.date){
+        console.log("hey");
+        checkTime = Math.max(9,roundTimeToNearest30Minutes());
+    }
+    console.log(checkTime);
+    for(;(checkTime + treatmentLong) <= 20; checkTime += 0.5){
         let endTime = checkTime + treatmentLong;
         let ans = true;
         for(let i = 0; i < allQuese.length; ++i){
@@ -52,7 +31,12 @@ const getAllAvailable = async (req, res) => {
         if(ans) available.push(checkTime);
     }
     console.log(available);
-    res.render('queueHour', {available});
+    if(available.length === 0){
+        res.redirect('/order');
+    }
+    else{
+        res.render('queueHour', {available});
+    }
 }
 
 const storeHour = (req, res) => {
@@ -61,34 +45,31 @@ const storeHour = (req, res) => {
     console.log(selectedHoure);
     req.session.queueDetails.startTime = Number(selectedHoure);
     req.session.queueDetails.endTime = Number(selectedHoure) + Number(treatmentLong);
-    console.log('bay');
     res.redirect('/confirm');
   }
 
+  function roundTimeToNearest30Minutes() {
+    const now = new Date();
+    const minutes = now.getMinutes();
+    const roundedMinutes = Math.ceil(minutes / 30) * 30;
+    ans = now.getHours();
 
-// const findSpot = (treatmentLong) => {
-//     const allQuese = [m2]
-//     let available = [];
-//     for(let checkTime = 9; (checkTime + treatmentLong) < 20; checkTime += 0.5){
-//         let endTime = checkTime + treatmentLong;
-//         let ans = true;
-//         for(let i = 0; i < allQuese.length; ++i){
-//             if((endTime < allQuese[i].endTime && endTime > allQuese[i].startTime) ||(checkTime < allQuese[i].endTime && checkTime > allQuese[i].startTime)){
-//                 ans = false;
-//                 break;
-//             }
-//             if(checkTime <= allQuese[i].startTime && endTime >= allQuese[i].endTime){
-//                 ans = false;
-//                 break;
-//             }
-//         }
-//         if(ans) available.push(checkTime);
-//     }
-//     console.log(available);
-// }
+    if (roundedMinutes >= 60) {
+        ans += 1;
+    } else {
+        ans += 0.5;
+    }
+    return ans;
+}
+function currDatetoString(){
+    const currentDate = new Date();
+    const year = currentDate.getFullYear();
+    const month = String(currentDate.getMonth() + 1).padStart(2, '0'); // Month is zero-based
+    const day = String(currentDate.getDate()).padStart(2, '0');
 
-
-// findSpot(1.5);
+    const formattedDate = `${year}-${month}-${day}`;
+    return formattedDate;
+}
 
 module.exports = {getAllAvailable,storeHour};
 

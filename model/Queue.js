@@ -6,12 +6,16 @@ const queueSchema = new Schema({
         type: String,
         required: true
     },
-    date: {
-        type: Date,
+    treatmentType: {
+        type: String,
         required: true
     },
-    treatment: {
-        type: String,
+    treatmentLong: {
+        type: Number,
+        required: true
+    },
+    date: {
+        type: Date,
         required: true
     },
     startTime: {

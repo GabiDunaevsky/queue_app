@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Confirm page</title>
+</head>
+<body>
+  <form id="confirmOrder" action="/confirm" method="POST">
+  <h2>Confirm</h2>
+    <p>Reservation Details:</p>
+    <ul>
+      <li><%= queueObj.treatment %></li>
+      <li>treatment long: <%= queueObj.treatmentLong %></li>
+      <li>date: <%= queueObj.date %></li>
+      <li>start hour: <%= queueObj.startTime %></li>
+      <li>end hour: <%= queueObj.endTime %></li>
+  </ul><br>
+    <button type="submit">confirm your reservation</button>
+  </form>
+</body>
+</html>

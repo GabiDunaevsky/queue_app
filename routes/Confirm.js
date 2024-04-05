@@ -4,6 +4,8 @@ const path = require('path');
 const auth = require('../middleware/IsAuthinticated');
 const confirmController = require('../controller/ConfirmPageController');
 
-router.get('^/$|/confirm(.html)?',auth.isAuthenticated,confirmController.confirmQueue);
+router.route('^/$|/confirm(.html)?')
+.get(auth.isAuthenticated,confirmController.confirmQueue)
+.post(confirmController.handleNewQueue);
 
 module.exports = router;
