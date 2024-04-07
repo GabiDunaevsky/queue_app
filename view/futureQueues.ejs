@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Future Queues</title>
+</head>
+<body>
+    <h1>Future Queues</h1>
+
+    <% if (queues && queues.length > 0) { %>
+        <ul>
+            <% queues.forEach(queue => { %>
+                <li>
+                    <%= queue.date %> - <%= queue.startTime %>
+                    <form action="/myQueues" method="post">
+                        <input type="hidden" name="queueId" value="<%= queue.id %>">
+                        <button type="submit">Delete</button>
+                    </form>
+                </li>
+            <% }); %>
+        </ul>
+    <% } else { %>
+        <p>No future queues</p>
+    <% } %>
+</body>
+</html>
+
+
+
+
+
+

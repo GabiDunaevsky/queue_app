@@ -68,6 +68,7 @@ app.use('/myWorks', require('./routes/MyWorks'));
 app.use('/auth', require('./routes/Auth'));
 app.use('/register', require('./routes/Register'));
 app.use('/order', require('./routes/Order'));
+app.use('/myQueues', require('./routes/MyQueues'));
 app.use('/queue', require('./routes/Queue'));
 app.use('/queueHour', require('./routes/QueueHour'));
 app.use('/confirm', require('./routes/Confirm'));

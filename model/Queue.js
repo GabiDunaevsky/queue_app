@@ -28,4 +28,6 @@ const queueSchema = new Schema({
     }
 });
 
+queueSchema.index({ date: 1, startTime: 1 });
+
 module.exports = mongoose.model('Queue', queueSchema);
