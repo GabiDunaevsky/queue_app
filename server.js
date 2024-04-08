@@ -35,6 +35,7 @@ app.use(express.urlencoded({ extended: false }));
 
 // built-in middleware for json 
 app.use(express.json());
+
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'view'));
 
