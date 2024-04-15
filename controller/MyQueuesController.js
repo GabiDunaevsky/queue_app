@@ -20,10 +20,10 @@ try{
         console.log(queue);
     });
 
-    res.render('futureQueues', { queues: structFutureQueuesFormat });
+        res.send(structFutureQueuesFormat);
     } catch (error) {
         console.error('Error retrieving future queues:', error);
-        res.status(500).send('Internal server error');
+        res.json({error: 'Internal server error'});
     }
     
 }
@@ -49,13 +49,13 @@ function formatTime(time) {
 
 const deleteQueue = async (req, res) => {
     try {
-        console.log("hey");
         const queueId = req.body.queueId;
+        console.log(queueId);
         await Queue.findByIdAndDelete(queueId);
-        res.redirect('/order');
+        res.json({message: "התור נמחק בהצלחה"});
     } catch (error) {
         console.error('Error deleting queue:', error);
-        res.status(500).send('Internal server error');
+        res.json({message:"שגיאה, אנא נסה שנית"});
     }
 
 

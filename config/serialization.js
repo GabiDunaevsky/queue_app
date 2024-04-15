@@ -5,12 +5,12 @@ const serializeUserFunction = (user, done) => {
   };
   
 const deserializeUserFunction = async (id, done) => {
-try {
-    const user = await User.findOne({ _id: id }).exec();
-    done(null, user);
-} catch (error) {
-    done(error, null);
-}
+  try {
+      const user = await User.findById({ _id: id }).exec();
+      done(null, user);
+  } catch (error) {
+      done(error, null);
+  }
 };
 
   module.exports = {serializeUserFunction, deserializeUserFunction};

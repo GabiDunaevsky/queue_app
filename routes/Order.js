@@ -5,9 +5,13 @@ const path = require('path');
 const orderController = require('../controller/OrderPageController');
 
 router.route('^/$|/order(.html)?')
-.get(auth.isAuthenticated, (req, res) => {
-    res.sendFile(path.join(__dirname,'..', 'view', 'order.html'));
+//auth.isAuthenticated
+.get(auth.isAuthenticated,(req, res) => {
+    console.log(req.session);
+    console.log(req.headers.origin);
+    // res.sendFile(path.join(__dirname,'..', 'view', 'order.html'));
+    // res.json({ message: 'Access granted to protected page', user: req.user });
 })
-.post(orderController.storestreatment);
+// .post(orderController.storestreatment);
 
 module.exports = router;

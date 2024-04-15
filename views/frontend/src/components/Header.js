@@ -9,7 +9,7 @@ export default function Header(){
                 <a href="/">Home</a>
             </li>
             <li>
-                <a href="/register">Register</a>
+                <a href="/logout">LogOut</a>
             </li>
         </ul>
     </nav>

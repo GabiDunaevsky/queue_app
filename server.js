@@ -1,5 +1,6 @@
 require('dotenv').config();
 const express = require('express');
+const morgan = require('morgan');
 const app = express();
 const path = require('path');
 const cors = require('cors');
@@ -21,7 +22,9 @@ const PORT = process.env.PORT || 3500;
 
 // Connect to MongoDB
 connectDB();
-
+// built-in middleware for json 
+app.use(express.json());
+app.use(morgan('dev'));
 
 // Handle options credentials check - before CORS!
 // and fetch cookies credentials requirement
@@ -33,34 +36,38 @@ app.use(cors(corsOptions));
 // built-in middleware to handle urlencoded form data
 app.use(express.urlencoded({ extended: false }));
 
-// built-in middleware for json 
-app.use(express.json());
 
-app.set('view engine', 'ejs');
-app.set('views', path.join(__dirname, 'view'));
+
+// app.set('view engine', 'ejs');
+// app.set('views', path.join(__dirname, 'view'));
+
+configurePassport(passport);
+
+passport.serializeUser(serialization.serializeUserFunction);
+passport.deserializeUser(serialization.deserializeUserFunction);
 
 // Set up session middleware
 app.use(session({
-    secret: 'secret',
+    secret: "shhhhh... it's a secret!",
     resave: false,
-    saveUninitialized: false
+    saveUninitialized: false,
+    cookie: { secure: true,
+    maxAge: 24 * 60 * 60 * 1000}
   }));
+  app.use(passport.authenticate('session'));
 
 // Set up passport middleware
-app.use(passport.initialize());
-app.use(passport.session());
+// app.use(passport.initialize());
+// app.use(passport.session());
 
-configurePassport(passport);
 
 
 // //middleware for cookies
 // app.use(cookieParser());
 
-passport.serializeUser(serialization.serializeUserFunction);
-passport.deserializeUser(serialization.deserializeUserFunction);
 
 // Serve static files from the 'views' directory
-app.use(express.static(path.join(__dirname, 'view')));
+// app.use(express.static(path.join(__dirname, 'view')));
 
 
 // routes

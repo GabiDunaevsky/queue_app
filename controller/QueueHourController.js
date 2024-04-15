@@ -1,17 +1,18 @@
 const Queue = require('../model/Queue');
 
 const getAllAvailable = async (req, res) => {
-    let dateObj = req.session.queueDetails;
+    let dateObj = req.query;
+    console.log(dateObj);
     const structQueues = await Queue.find({date: dateObj.date});
-    allQuese = [... structQueues];
+    // console.log(structQueues);
+    allQuese = [...structQueues];
     allQuese.push({startTime: 14, endTime: 15});
-    console.log(allQuese);
+    // console.log(allQuese);
 
-    let treatmentLong = dateObj.treatmentLong;
+    let treatmentLong = Number(dateObj.treatmentLong);
     let available = [];
     let checkTime = 9;
     if(currDatetoString() === dateObj.date){
-        console.log("hey");
         checkTime = Math.max(9,roundTimeToNearest30Minutes());
     }
     console.log(checkTime);
@@ -31,22 +32,25 @@ const getAllAvailable = async (req, res) => {
         if(ans) available.push(checkTime);
     }
     console.log(available);
-    if(available.length === 0){
-        res.redirect('/order');
-    }
-    else{
-        res.render('queueHour', {available});
-    }
+    res.send(available);
+    // if(available.length === 0){
+    //     // res.redirect('/order');
+    //     res.send([]);
+    // }
+    // else{
+    //     res.send(available);
+    //     // res.render('queueHour', {available});
+    // }
 }
 
-const storeHour = (req, res) => {
-    const selectedHoure = req.body.chosenHour;
-    let treatmentLong = req.session.queueDetails.treatmentLong;
-    console.log(selectedHoure);
-    req.session.queueDetails.startTime = Number(selectedHoure);
-    req.session.queueDetails.endTime = Number(selectedHoure) + Number(treatmentLong);
-    res.redirect('/confirm');
-  }
+// const storeHour = (req, res) => {
+//     const selectedHoure = req.body.chosenHour;
+//     let treatmentLong = req.session.queueDetails.treatmentLong;
+//     console.log(selectedHoure);
+//     req.session.queueDetails.startTime = Number(selectedHoure);
+//     req.session.queueDetails.endTime = Number(selectedHoure) + Number(treatmentLong);
+//     res.redirect('/confirm');
+//   }
 
   function roundTimeToNearest30Minutes() {
     const now = new Date();
@@ -71,5 +75,5 @@ function currDatetoString(){
     return formattedDate;
 }
 
-module.exports = {getAllAvailable,storeHour};
+module.exports = {getAllAvailable};
 
