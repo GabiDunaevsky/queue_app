@@ -1,11 +1,10 @@
-import { useAppointment } from '../components/AppointmentContext';
 import React, { useState,useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import  WelcomeMessage  from '../components/WelcomeGuest';
 
-function MyAppointments(props){
-    const { appointmentData, setAppointmentData } = useAppointment();
+function MyAppointments(){
     const [ appointments, setAppointments ] = useState([]);
-    const [ error, setError ] = useState([]);
+    const [ error, setError ] = useState('');
     const navigate = useNavigate();
 
 
@@ -49,7 +48,6 @@ function MyAppointments(props){
             });
             const data = await response.json();
             if (response.ok) {
-                // Refresh appointments after deletion
                 fetchData();
             } else {
                 setError(data.message);
@@ -60,23 +58,22 @@ function MyAppointments(props){
     };
     return(
     <>
-        <i>
-            <h1> :שלום {props.loggedInName} , רשימת התורים העתדיים</h1>
-        </i>
+        <WelcomeMessage Type ={', רשימת התורים העתדיים'}/>
         {appointments && appointments.length > 0 ? (
         <ul>
           {appointments.map(queue => (
             <li key={queue.id}>
               {queue.date} - {queue.startTime}
               <form onSubmit={(e) => { e.preventDefault(); handleDelete(queue.id); }}>
-                <button type="submit">Delete</button>
+                <button type="submit">בטל</button>
               </form>
             </li>
           ))}
         </ul>
       ) : (
-        <p>No future queues</p>
+        <p>אין תורים עתדיים</p>
       )}
+      {error && <p style={{ color: 'red' }}>{error}</p>}
         <a href='/appointmentType'>
             <button>חזור לקביעת תור</button>
 

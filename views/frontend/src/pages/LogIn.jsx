@@ -12,11 +12,10 @@ function Login(props){
       const checkAuth = async ()=>{
         const res = await fetch('http://localhost:3500/auth', {
             method: 'GET',
-            credentials: 'include' // This ensures that cookies are sent with the request
+            credentials: 'include'
         });
         if(res.ok) {
           const data = await res.json();
-          console.log(data);
           if(data.status === 'connected'){
             navigate('/appointmentType', { replace: true });
           }
@@ -40,10 +39,11 @@ function Login(props){
                 password: password
             }),
       });
+        const message = await response.json();
         if(response.ok) {
-          const username = await response.json();
           props.updateLoggedInStatus(true);
-          props.updateLoggedInName(username);
+        }else{
+          setErrorMessage(message.message);
         }
         } catch (error) {
             console.error('Error authenticating user:', error);
@@ -60,7 +60,7 @@ function Login(props){
         <label htmlFor="password">Password:</label>
         <input type="password" id="password" value={password} onChange={(e) => setPassword(e.target.value)} />
       </div>
-      {errorMessage && <div>{errorMessage}</div>}
+      {errorMessage && <p style={{ color: 'red' }}>{errorMessage}</p>}
       <button type="submit">Login</button>
     </form>
   );

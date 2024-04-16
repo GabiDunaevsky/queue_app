@@ -18,12 +18,8 @@ import React, { useState } from 'react';
 
 export default function Router(){
     const [loggedIn, setLoggedIn] = useState(false);
-    const [loggedInName, setLoggedInName] = useState('');
     const updateLoggedInStatus = (status) => {
         setLoggedIn(status);
-    };
-    const updateLoggedInName = (name) => {
-        setLoggedInName(name);
     };
     const LayOut = () =>{
         return(
@@ -34,20 +30,6 @@ export default function Router(){
           </>
         )
       }
-
-    // const BrowserRoutes =  () =>{
-
-    //     return(
-    //         <BrowserRouter>
-    //         <Routes>
-    //             <Route path='/' element={<LayOut />}>
-    //                 <Route path='/' element={<Home />}/>
-    //                 <Route path='/contact-us' element={<Contact />}/>
-    //                 </Route>
-    //             </Routes>
-    //         </BrowserRouter>
-    //     )
-    // }
     const BrowserRoutes = createBrowserRouter([
         {
             path:"/",
@@ -61,7 +43,7 @@ export default function Router(){
                     path: "/appointmentDate",
                     element:(
                             <AppointmentProvider>
-                                 <AppointmentDate loggedInName={loggedInName} /> 
+                                 <AppointmentDate /> 
                              </AppointmentProvider>
                             )  
                 },
@@ -69,7 +51,7 @@ export default function Router(){
                     path: "/appointmentTime",
                     element:(
                         <AppointmentProvider>
-                             <AppointmentTime loggedInName={loggedInName} /> 
+                             <AppointmentTime /> 
                          </AppointmentProvider>
                         )    
                 },
@@ -77,7 +59,7 @@ export default function Router(){
                     path: "/appointmentType",
                     element:(
                         <AppointmentProvider>
-                             <AppointmentType loggedInName={loggedInName} /> 
+                             <AppointmentType /> 
                          </AppointmentProvider>
                         )   
                 },
@@ -85,7 +67,7 @@ export default function Router(){
                     path: "/confirmDetails",
                     element:(
                         <AppointmentProvider>
-                             <ConfirmAppointment loggedInName={loggedInName} /> 
+                             <ConfirmAppointment /> 
                          </AppointmentProvider>
                         )   
                 },
@@ -105,7 +87,6 @@ export default function Router(){
         },
         {
             path: "/logout",
-            // element: loggedIn ? <LogOut loggedIn={loggedIn} updateLoggedInStatus={updateLoggedInStatus} />: <Navigate replace to='/'/> 
             element: <LogOut loggedIn={loggedIn} updateLoggedInStatus={updateLoggedInStatus}/>
         },
         {
@@ -114,8 +95,7 @@ export default function Router(){
         },
         {
             path: "/login",
-            element:  loggedIn ?<Navigate replace to='/appointmentType' />: <Login loggedIn={loggedIn} updateLoggedInStatus={updateLoggedInStatus} 
-            loggedInName={loggedInName} updateLoggedInName={updateLoggedInName}/>
+            element:  loggedIn ?<Navigate replace to='/appointmentType' />: <Login loggedIn={loggedIn} updateLoggedInStatus={updateLoggedInStatus} />
         }
     ])
 

@@ -1,8 +1,9 @@
 import { useAppointment } from '../components/AppointmentContext';
 import React, { useState,useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import  WelcomeMessage  from '../components/WelcomeGuest';
 
-function AppointmentTime(props){
+function AppointmentTime(){
     const navigate = useNavigate();
     const {appointmentData, setAppointmentData } = useAppointment();
     const[hours,setHours] = useState([]);
@@ -22,10 +23,7 @@ function AppointmentTime(props){
                 credentials: 'include',
             });
             const data = await response.json();
-            console.log(data);
-            console.log(typeof data);
             if (response.ok) {
-                console.log("ll");
                 if (data.error === 'Not authorized') {
                     navigate('/login', { replace: true });
                 }else {
@@ -44,7 +42,6 @@ function AppointmentTime(props){
         if (selectedTime) {
             const selectedValue = Number(selectedTime.value);
             setAppointmentData({...appointmentData, startTime: selectedValue , endTime:selectedValue + Number(appointmentData.treatmentLong)});
-            console.log(appointmentData);
             navigate('/confirmDetails', { replace: true });
         }else{
             const form = e.target.form;
@@ -54,7 +51,7 @@ function AppointmentTime(props){
     }
     return(
         <>
-        <h1>😊 שלום {props.loggedInName} ,בחר את שעת הטיפול</h1>
+        <WelcomeMessage Type ={', בחר את שעת הטיפול'}/>
         <form>
                 {hours.map((hour, index) => (
                     <div key={index}>

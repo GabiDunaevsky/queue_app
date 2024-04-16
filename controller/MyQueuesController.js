@@ -16,10 +16,6 @@ try{
                 startTime: formatTime(queue.startTime)
             }        
     )});
-    structFutureQueuesFormat.forEach(queue => {
-        console.log(queue);
-    });
-
         res.send(structFutureQueuesFormat);
     } catch (error) {
         console.error('Error retrieving future queues:', error);
@@ -34,7 +30,6 @@ try{
     const year = date.getFullYear();
     const month = String(date.getMonth() + 1).padStart(2, '0');
     const day = String(date.getDate()).padStart(2, '0');
-    console.log(`${year}-${month}-${day}`)
     return `${day}/${month}/${year}`;
 }
 
@@ -50,16 +45,12 @@ function formatTime(time) {
 const deleteQueue = async (req, res) => {
     try {
         const queueId = req.body.queueId;
-        console.log(queueId);
         await Queue.findByIdAndDelete(queueId);
-        res.json({message: "התור נמחק בהצלחה"});
+        res.json({message:"success"});
     } catch (error) {
         console.error('Error deleting queue:', error);
         res.json({message:"שגיאה, אנא נסה שנית"});
     }
-
-
-
 }
 
 module.exports = {getAllFuter,deleteQueue};

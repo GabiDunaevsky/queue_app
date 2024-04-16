@@ -1,23 +1,20 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAppointment } from '../components/AppointmentContext';
+import  WelcomeMessage  from '../components/WelcomeGuest';
 
-function AppointmentType(props){
+function AppointmentType(){
     const { appointmentData, setAppointmentData } = useAppointment();
-    const[error,setError] = useState('');
     const navigate = useNavigate();
 
     useEffect(()=>{
         const checkAuth = async ()=>{
-            const res = await fetch('http://localhost:3500/order', {
+            const res = await fetch('http://localhost:3500/user/isAuth', {
                 method: 'GET',
-                credentials: 'include' // This ensures that cookies are sent with the request
+                credentials: 'include'
             });
             if (res.ok) {
-                // Extract the response data using the appropriate method
-                const data = await res.json(); // Assuming the response is plain text
-                console.log(data);
-                console.log(data.error);
+                const data = await res.json();
                 if (data.error === 'Not authorized') {
                     navigate('/login', { replace: true });
                 }
@@ -34,8 +31,8 @@ function AppointmentType(props){
             const selectedValue = selectedTreatment.value;
             if (selectedValue === 'lakGel') {
                 setAppointmentData({treatment: 'סוג הטיפול: לק גל', treatmentLong: 1.5});
-              } else if (selectedValue === 'Bnia') {
-                setAppointmentData({treatment: 'סוג הטיפול: לק גל ובנייה', treatmentLong: 2.5});
+              } else if (selectedValue === 'Anatom') {
+                setAppointmentData({treatment: ' סוג הטיפול: לק גל + מניקור + מבנה אנטומי', treatmentLong: 2});
               }
               navigate('/appointmentDate', { replace: true });
         }else{
@@ -47,9 +44,7 @@ function AppointmentType(props){
 
     return(
     <>
-        <i>
-            <h1> 😊 שלום {props.loggedInName} , בחר טיפול בבקשה</h1>
-        </i>
+        <WelcomeMessage Type ={', בחר טיפול בבקשה'}/>
         <form>
             <div htmlFor="lakGel">סוג הטיפול: לק ג' ל<br/> 
             מחיר הטיפול: 120 ש"ח
@@ -57,16 +52,15 @@ function AppointmentType(props){
             משך הטיפול: שעה וחצי
             </div>
             <input id="lakGel" type="radio" value="lakGel" name="group1" required /><br/>
-            <div htmlFor="Bnia"> סוג הטיפול: לק ג'ל ובנייה
+            <div htmlFor="Anatom"> סוג הטיפול: לק ג'ל + מניקור + מבנה אנטמי
                 <br/>
                 מחיר הטיפול: 150 ש"ח
                 <br/>
                 משך הטיפול: שעתיים
             </div>
-            <input id="Bnia" type="radio" value="Bnia" name="group1" required /><br/>
+            <input id="Anatom" type="radio" value="Anatom" name="group1" required /><br/>
             <button type="submit" id="continueBtn" onClick={handleTreatment}>Continue to choose a date</button>
         </form>
-        {error}
     <a href="/myAppointments">
         <button>My Appointments</button>
     </a>

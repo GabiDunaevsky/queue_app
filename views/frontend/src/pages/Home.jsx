@@ -32,6 +32,9 @@ function Home(){
         </i>
         <p>This is homepage.</p>
         <p>server massege: {data}</p>
+        <a href="/login">
+            <button>להזמנת תור</button>
+        </a>
     </>
     )
 };

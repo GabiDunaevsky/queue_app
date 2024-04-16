@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAppointment } from '../components/AppointmentContext';
+import  WelcomeMessage  from '../components/WelcomeGuest';
 
 
-function AppointmentDate(props){
+function AppointmentDate(){
     const { appointmentData, setAppointmentData } = useAppointment();
     const[appointmentDetails, setAppointmentDetails] = useState('לא נבחר סוג טיפול');
     const navigate = useNavigate();
@@ -13,13 +14,10 @@ function AppointmentDate(props){
             const selectedDate = event.target.value;
             const today = new Date().setHours(0, 0, 0, 0);
             const selectedDateTime = new Date(selectedDate).setHours(0, 0, 0, 0);
-            // const obj = appointmentData;
-            // obj.date = selectedDate;
             setAppointmentData({...appointmentData, date: selectedDate});
-            console.log(appointmentData);
             if (selectedDateTime < today) {
                 alert("Please select a date from today or in the future.");
-                event.target.value = ''; // Clear the input value
+                event.target.value = ''; 
             } else {
                 const dateParts = selectedDate.split('-');
                 const day = dateParts[2];
@@ -39,21 +37,18 @@ function AppointmentDate(props){
     function checkDayOfWeek(event) {
       const selectedDate = new Date(event.target.value);
       const dayOfWeek = selectedDate.getDay();
-      if (dayOfWeek === 5 || dayOfWeek === 6) { // Friday or Saturday
-          event.target.value = ''; // Clear the input value
+      if (dayOfWeek === 5 || dayOfWeek === 6) { 
+          event.target.value = ''; 
           alert("Please select a date from Sunday to Thursday.");
       }
   }
   const checkAuth = async ()=>{
-    const res = await fetch('http://localhost:3500/queue', {
+    const res = await fetch('http://localhost:3500/user/isAuth', {
         method: 'GET',
-        credentials: 'include' // This ensures that cookies are sent with the request
+        credentials: 'include'
     });
     if (res.ok) {
-        // Extract the response data using the appropriate method
-        const data = await res.json(); // Assuming the response is plain text
-        console.log(data);
-        console.log(data.error);
+        const data = await res.json();
         if (data.error === 'Not authorized') {
             navigate('/login', { replace: true });
         }
@@ -62,21 +57,16 @@ function AppointmentDate(props){
     const handleAppointment = (e) =>{
         e.preventDefault();
         if(document.getElementById('datepicker').value){
-            console.log(appointmentData);
             navigate("/appointmentTime", { replace: true });
         }else{
             const form = e.target.form;
             form.reportValidity();
             return;
-        }
-                // postData(selectedValue);
-        
+        }  
     }
     return(
     <>
-        <i>
-            <h1>😊 שלום  {props.loggedInName} ,בחר תאריך עבור הטיפול</h1>
-        </i>
+        <WelcomeMessage Type ={', בחר תאריך עבור הטיפול'}/>
         <form>
         <div>
             <label htmlFor="datepicker">Pick a date:</label>
