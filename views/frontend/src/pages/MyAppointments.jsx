@@ -1,6 +1,8 @@
 import React, { useState,useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import  WelcomeMessage  from '../components/WelcomeGuest';
+import Header from '../components/Header';
+import Footer from '../components/Footer';
 
 function MyAppointments(){
     const [ appointments, setAppointments ] = useState([]);
@@ -58,6 +60,7 @@ function MyAppointments(){
     };
     return(
     <>
+        <Header/>
         <WelcomeMessage Type ={', רשימת התורים העתדיים'}/>
         {appointments && appointments.length > 0 ? (
         <ul>
@@ -78,6 +81,7 @@ function MyAppointments(){
             <button>חזור לקביעת תור</button>
 
         </a>
+        <Footer/>
     </>
     )
 };

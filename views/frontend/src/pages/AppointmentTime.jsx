@@ -2,6 +2,8 @@ import { useAppointment } from '../components/AppointmentContext';
 import React, { useState,useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import  WelcomeMessage  from '../components/WelcomeGuest';
+import Header from '../components/Header';
+import Footer from '../components/Footer';
 
 function AppointmentTime(){
     const navigate = useNavigate();
@@ -51,6 +53,7 @@ function AppointmentTime(){
     }
     return(
         <>
+        <Header/>
         <WelcomeMessage Type ={', בחר את שעת הטיפול'}/>
         <form>
                 {hours.map((hour, index) => (
@@ -61,6 +64,7 @@ function AppointmentTime(){
                 ))}
                 <button type='submit' onClick={handleDetails}>Continue to Confirm</button>
             </form>
+            <Footer/>
         </>
     )
 }

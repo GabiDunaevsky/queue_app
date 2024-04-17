@@ -2,6 +2,8 @@ import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAppointment } from '../components/AppointmentContext';
 import  WelcomeMessage  from '../components/WelcomeGuest';
+import Header from '../components/Header';
+import Footer from '../components/Footer';
 
 function AppointmentType(){
     const { appointmentData, setAppointmentData } = useAppointment();
@@ -44,6 +46,7 @@ function AppointmentType(){
 
     return(
     <>
+        <Header/>
         <WelcomeMessage Type ={', בחר טיפול בבקשה'}/>
         <form>
             <div htmlFor="lakGel">סוג הטיפול: לק ג' ל<br/> 
@@ -64,6 +67,7 @@ function AppointmentType(){
     <a href="/myAppointments">
         <button>My Appointments</button>
     </a>
+    <Footer/>
    </>
     )
 };

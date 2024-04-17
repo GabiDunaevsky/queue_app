@@ -1,5 +1,3 @@
-import Header from './Header';
-import Footer from './Footer';
 // import {BrowserRouter, Routes, Route, Outlet} from 'react-router-dom';
 import Register from '../pages/Register';
 import Home from '../pages/Home';
@@ -11,7 +9,7 @@ import Login from '../pages/LogIn';
 import LogOut from '../pages/LogOut';
 import MyAppointments from '../pages/MyAppointments';
 import MyWorks from '../pages/Works';
-import {createBrowserRouter, RouterProvider,Outlet, Navigate} from 'react-router-dom';
+import {createBrowserRouter, RouterProvider, Navigate} from 'react-router-dom';
 import { AppointmentProvider } from './AppointmentContext';
 import React, { useState } from 'react';
 
@@ -21,69 +19,54 @@ export default function Router(){
     const updateLoggedInStatus = (status) => {
         setLoggedIn(status);
     };
-    const LayOut = () =>{
-        return(
-          <>
-            <Header/>
-            <Outlet/>
-            <Footer/>
-          </>
-        )
-      }
     const BrowserRoutes = createBrowserRouter([
         {
-            path:"/",
-            element: <LayOut />,
-            children: [
-                {
-                    path: "/",
-                    element: <Home />
-                },
-                {
-                    path: "/appointmentDate",
-                    element:(
-                            <AppointmentProvider>
-                                 <AppointmentDate /> 
-                             </AppointmentProvider>
-                            )  
-                },
-                {
-                    path: "/appointmentTime",
-                    element:(
-                        <AppointmentProvider>
-                             <AppointmentTime /> 
-                         </AppointmentProvider>
-                        )    
-                },
-                {
-                    path: "/appointmentType",
-                    element:(
-                        <AppointmentProvider>
-                             <AppointmentType /> 
-                         </AppointmentProvider>
-                        )   
-                },
-                {
-                    path: "/confirmDetails",
-                    element:(
-                        <AppointmentProvider>
-                             <ConfirmAppointment /> 
-                         </AppointmentProvider>
-                        )   
-                },
-                {
-                    path: "/myAppointments",
-                    element:(
-                        <AppointmentProvider>
-                             <MyAppointments /> 
-                         </AppointmentProvider>
-                        )   
-                },
-                {
-                    path: "/works",
-                    element: <MyWorks />   
-                }
-            ]
+            path: "/",
+            element: <Home />
+        },
+        {
+            path: "/appointmentDate",
+            element:(
+                    <AppointmentProvider>
+                         <AppointmentDate /> 
+                     </AppointmentProvider>
+                    )  
+        },
+        {
+            path: "/appointmentTime",
+            element:(
+                <AppointmentProvider>
+                     <AppointmentTime /> 
+                 </AppointmentProvider>
+                )    
+        },
+        {
+            path: "/appointmentType",
+            element:(
+                <AppointmentProvider>
+                     <AppointmentType /> 
+                 </AppointmentProvider>
+                )   
+        },
+        {
+            path: "/confirmDetails",
+            element:(
+                <AppointmentProvider>
+                     <ConfirmAppointment /> 
+                 </AppointmentProvider>
+                )   
+        },
+        {
+            path: "/myAppointments",
+            element:(
+                <AppointmentProvider>
+                     <MyAppointments /> 
+                 </AppointmentProvider>
+                )   
+        },
+        {
+            path: "/works",
+            element: <MyWorks />   
         },
         {
             path: "/logout",

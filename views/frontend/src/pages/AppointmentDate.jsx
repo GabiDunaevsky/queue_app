@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAppointment } from '../components/AppointmentContext';
 import  WelcomeMessage  from '../components/WelcomeGuest';
+import Header from '../components/Header';
+import Footer from '../components/Footer';
 
 
 function AppointmentDate(){
@@ -66,6 +68,7 @@ function AppointmentDate(){
     }
     return(
     <>
+        <Header/>
         <WelcomeMessage Type ={', בחר תאריך עבור הטיפול'}/>
         <form>
         <div>
@@ -75,8 +78,8 @@ function AppointmentDate(){
         {appointmentDetails}<br/>
         <label id="selectedDateDis"></label><br/><br/>
         <button type="submit" onClick={handleAppointment}>Continue</button>
-
         </form>
+        <Footer/>
     </>
     )
 };

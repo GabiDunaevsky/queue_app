@@ -2,6 +2,8 @@ import { useAppointment } from '../components/AppointmentContext';
 import React, { useState,useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import  WelcomeMessage  from '../components/WelcomeGuest';
+import Header from '../components/Header';
+import Footer from '../components/Footer';
 
 function ConfirmAppointment(){
     const { appointmentData, setAppointmentData } = useAppointment();
@@ -54,7 +56,7 @@ function ConfirmAppointment(){
   };
     return(
     <>
-        
+        <Header/>
         <WelcomeMessage Type ={', אנא אשר את פרטי התור'}/>
         <div>
             {appointmentDetails && ( 
@@ -75,7 +77,7 @@ function ConfirmAppointment(){
         <a href='/appointmentType'>
             <button>חזרה לקביעת תור</button>
         </a>
-        
+        <Footer/>
     </>
     )
 };
