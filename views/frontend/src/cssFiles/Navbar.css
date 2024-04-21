@@ -1,0 +1,53 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap');
+
+.navbar ul{
+   list-style-type: none; 
+   padding: 0px;
+   margin: 0px;
+   background-color: transparent;
+   display: flex;
+   justify-content: center;
+}
+.navbar .menu-icon i{
+    font-size: 1.5em;
+}
+.navbar .menu-icon i:hover{
+    font-size: 1.7em;
+}
+.navbar .nav-links{
+    color: black;
+    text-decoration: none;
+    padding: 30px;
+    padding-right: 50px;
+    display: block;
+    text-align: center;
+    font-style: italic;
+    font-size: 1.4rem;
+    text-shadow: 3px 3px 5px;
+}
+.navbar .nav-links:hover{
+    font-size: 1.6rem;
+}
+
+.nav-menu {
+    display: flex;
+    flex-direction: column;
+    width: 15%;
+    min-height: 60vh;
+    position: fixed;
+    top: 80px;
+    left: 0;
+    opacity: 1;
+    transition: all 0.5s ease;
+    font-style: italic;
+  }
+
+  .nav-menu.active {
+    padding: 10px;
+    background: transparent;
+    left: 0;
+    opacity: 1;
+    transition: all 1s ease;
+    z-index: 1;
+    font-size: 1.3rem;
+  }

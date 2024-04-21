@@ -1,23 +1,21 @@
-.login-page{
+.registerPage{
+    height: 120vh;
+}
+.registerContainer{
+    margin: 0;
+    display: flex;
+    justify-content: top;
+    align-items: center;
+    flex-direction: column;
+    margin-top: -10vh;
+}
+.register{
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
-}
-.login-div{
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    height: 90vh;
-}
-.login{
-    display: flex;
-    justify-content: center;
-    align-items: center;
     flex-direction: column;
 }
-.LoginInputs, .signinB{
-    font-size: 1.5rem;
+.register .registerInputs, .register button{
     display: flex;
     background-color: rgb(239, 222, 205);
     border-radius: 40px;
@@ -25,35 +23,33 @@
     padding: 10px;
     border: 1.5px solid black;
     margin-bottom: 10px;
+    font-size: 1.4rem;
 }
-.LoginInputs .password{
-    font-size: 1.39rem;
-}
-.LoginInputs input{
+.register input {
     background-color: transparent;
     border: none;
-    font-size: 1.5rem;
+    font-size: 1.4rem;
 }
-.LoginInputs input:focus {
+.register input:focus {
     outline: none;
     border: none;
 }
-.toSee{
+.register .password{
+    font-size: 1.32rem;
+}
+.toSeeReg{
     color: black;
     padding: 0;
-    font-size: 1.1rem;
+    font-size: 1.05rem;
 }
-.signinB{
-    padding: 8px 15px;
-}
-.signinB:hover{
-    font-size: 1.7rem;
+.register button:hover{
     cursor: pointer;
     background-color: hsl(30, 52%, 90%);
+    font-size: 1.6rem;
 }
-.LoginInputs:hover{
+.registerInputs:hover{
     background-color: hsl(30, 52%, 90%);
 }
-.LoginInputs input:hover{
-    font-size: 1.7rem;
+.registerInputs input:hover{
+    font-size: 1.6rem;
 }

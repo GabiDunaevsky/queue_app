@@ -1,9 +1,8 @@
+import Navbar from '../components/Navbar'
 function Works(){
     return(
     <>
-        <i>
-            <h1>My works</h1>
-        </i>
+      <Navbar/>
     </>
     )
 };

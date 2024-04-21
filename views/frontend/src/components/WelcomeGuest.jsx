@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import '../cssFiles/WelcomeGuest.css'
 
 function WelcomeGuest(props){
     const[firstName,setFirstName] = useState('');
@@ -16,9 +17,9 @@ function WelcomeGuest(props){
         checkAuth()},[]);
     return(
     <>
-        <i>
-            <h1> 😊 שלום {firstName} {props.Type} </h1>
-        </i>
+    <div className="welcomHead">
+        <p> 😊 שלום {firstName} {props.Type} </p>
+    </div>
    </>
     )
 };

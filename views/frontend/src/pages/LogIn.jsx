@@ -2,11 +2,13 @@ import React, { useState,useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import HeartLogo from '../components/HeratLogo';
 import '../cssFiles/Login.css';
+import BackHome from '../components/BackToHome';
 
 function Login(props){
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [errorMessage, setErrorMessage] = useState('');
+    const[visible,setVisible] = useState(false);
     const navigate = useNavigate();
 
 
@@ -57,16 +59,21 @@ function Login(props){
         <div className='login-div'>
         <HeartLogo className='logo'/>
           <form className='login' onSubmit={handleSubmit}>
-            <div>
-              <input type="text" id="username" className='LoginInputs' placeholder='Email' value={username} onChange={(e) => setUsername(e.target.value)} />
+            <div className='LoginInputs'>
+              <input type="text" id="username"  placeholder='Email' value={username} onChange={(e) => setUsername(e.target.value)} required/>
             </div>
-            <div>
-              <input type="password" id="password" className='LoginInputs'placeholder='Password' value={password} onChange={(e) => setPassword(e.target.value)} />
+            <div className='LoginInputs'>
+              <input type={visible? "text" : "password"} id="password" placeholder='Password' className='password' value={password} onChange={(e) => setPassword(e.target.value)} required/>
+              <div className='toSee' onClick={()=> setVisible(!visible)}>
+                  <i className={visible?  'fa-regular fa-eye' : 'fa-solid fa-eye-slash'}/>
+              </div>
             </div>
             {errorMessage && <p style={{ color: 'red' }}>{errorMessage}</p>}
             <button className='signinB' type="submit">LOGIN</button>
           </form>
           <a href='/register'>Sign-up</a>
+          <br></br>
+          <BackHome/>
         </div>
       </div>    
   );

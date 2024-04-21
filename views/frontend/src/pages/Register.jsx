@@ -1,5 +1,8 @@
 import React, { useState} from 'react';
 import { useNavigate } from 'react-router-dom';
+import '../cssFiles/Register.css'
+import HeartLogo from '../components/HeratLogo';
+import BackHome from '../components/BackToHome';
 
 function Register(){
     const navigate = useNavigate();
@@ -9,6 +12,7 @@ function Register(){
     const [password, setPassword] = useState('');
     const [phoneNumber, setPhoneNumber] = useState('');
     const [error, setError] = useState('');
+    const[visible,setVisible] = useState(false);
 
     const passportValidation = () =>{
          if (password.length < 7 ) {
@@ -55,33 +59,36 @@ function Register(){
         }
   };
     return(
-        <>
-        <h1>Register</h1>
-        <form onSubmit={handleSubmit}>
-            <div>
-                <label htmlFor="firstName">First name:</label>
-                <input type="text" id="firstName" name="firstName" value={firstName} onChange={(e) => setFirstName(e.target.value)} required />
+
+        <div className="registerPage" style={{ backgroundColor: 'rgb(239, 222, 205)'}}>
+            <div className="registerContainer">
+                <HeartLogo className='logo'/>
+                <form onSubmit={handleSubmit} className='register'>
+                    <div className='registerInputs'>
+                        <input type="text" id="firstName" name="firstName" placeholder='First name' value={firstName} onChange={(e) => setFirstName(e.target.value)} required />
+                    </div>
+                    <div className='registerInputs'>
+                        <input type="text" id="lastName" name="lastName" placeholder='Last name' value={lastName} onChange={(e) => setLastName(e.target.value)} required />
+                    </div>
+                    <div className='registerInputs'>
+                        <input type="email" id="username" name="username" placeholder='Email' value={email} onChange={(e) => setEmail(e.target.value)} required />
+                    </div>
+                    <div className='registerInputs'> 
+                        <input type={visible? "text" : "password"} id="password" name="password" placeholder='Password' className='password' value={password} onChange={(e) => setPassword(e.target.value)} required />
+                        <div className='toSeeReg' onClick={()=> setVisible(!visible)}>
+                            <i className={visible?  'fa-regular fa-eye' : 'fa-solid fa-eye-slash'}/>
+                        </div>
+                    </div>
+                    <div className='registerInputs'>
+                        <input type="tel" id="phonenumber" name="phonenumber" placeholder='Phone Number' value={phoneNumber} onChange={(e) => setPhoneNumber(e.target.value)} required />
+                    </div><br />
+                    <button type="submit">Register</button>
+                </form>
+                {error && <p style={{ color: 'red' }}>{error}</p>}
+                <br></br>
+                <BackHome/>
             </div>
-            <div>
-                <label htmlFor="lastName">Last name:</label>
-                <input type="text" id="lastName" name="lastName" value={lastName} onChange={(e) => setLastName(e.target.value)} required />
-            </div>
-            <div>
-                <label htmlFor="username">Email:</label>
-                <input type="email" id="username" name="username" value={email} onChange={(e) => setEmail(e.target.value)} required />
-            </div>
-            <div>
-                <label htmlFor="password">Password:</label>
-                <input type="password" id="password" name="password" value={password} onChange={(e) => setPassword(e.target.value)} required />
-            </div>
-            <div>
-                <label htmlFor="phonenumber">Phone Number:</label>
-                <input type="tel" id="phonenumber" name="phonenumber" value={phoneNumber} onChange={(e) => setPhoneNumber(e.target.value)} required />
-            </div><br />
-            <button type="submit">Register</button>
-        </form>
-        {error && <p style={{ color: 'red' }}>{error}</p>}
-        </>
+        </div>
     )
 }
 export default Register;

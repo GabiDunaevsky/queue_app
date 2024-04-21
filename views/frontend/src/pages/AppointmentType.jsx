@@ -3,7 +3,8 @@ import { useNavigate } from 'react-router-dom';
 import { useAppointment } from '../components/AppointmentContext';
 import  WelcomeMessage  from '../components/WelcomeGuest';
 import Header from '../components/Header';
-import Footer from '../components/Footer';
+import '../cssFiles/AppointmentType.css'
+import Hand from '../assets/images/Logos/decoration2Home.png';
 
 function AppointmentType(){
     const { appointmentData, setAppointmentData } = useAppointment();
@@ -32,9 +33,15 @@ function AppointmentType(){
         if (selectedTreatment) {
             const selectedValue = selectedTreatment.value;
             if (selectedValue === 'lakGel') {
-                setAppointmentData({treatment: 'סוג הטיפול: לק גל', treatmentLong: 1.5});
+                setAppointmentData({treatment: "סוג הטיפול: לק ג'ל", treatmentLong: 1.5});
               } else if (selectedValue === 'Anatom') {
-                setAppointmentData({treatment: ' סוג הטיפול: לק גל + מניקור + מבנה אנטומי', treatmentLong: 2});
+                setAppointmentData({treatment: " סוג הטיפול: לק ג'ל + מניקור + מבנה אנטומי", treatmentLong: 2});
+              }
+              else if (selectedValue === 'milui') {
+                setAppointmentData({treatment: " סוג הטיפול: מילוי בג'ל בניהה + מבנה אנטומי", treatmentLong: 2.5});
+              }
+              else if (selectedValue === 'Anatom') {
+                setAppointmentData({treatment: "סוג הטיפול: בנייה בג'ל", treatmentLong: 3});
               }
               navigate('/appointmentDate', { replace: true });
         }else{
@@ -46,28 +53,62 @@ function AppointmentType(){
 
     return(
     <>
-        <Header/>
-        <WelcomeMessage Type ={', בחר טיפול בבקשה'}/>
+    <Header/>
+    <WelcomeMessage Type ={', בחר טיפול בבקשה'} className="msgHead"/>
+    <div className="containerAppointmentType">
         <form>
-            <div htmlFor="lakGel">סוג הטיפול: לק ג' ל<br/> 
-            מחיר הטיפול: 120 ש"ח
-            <br/>
-            משך הטיפול: שעה וחצי
+            <div className='alignment'>
+                <div className='alignmentlakGel'>
+                    <label htmlFor="lakGel">סוג הטיפול: לק ג'ל + מניקור ללא מבנה אנטומי<br/> 
+                    מחיר הטיפול: 100 ש"ח
+                    <br/>
+                    משך הטיפול: שעה וחצי
+                </label>
+                </div>
+                <input id="lakGel" type="radio" value="lakGel" name="group1" required />
             </div>
-            <input id="lakGel" type="radio" value="lakGel" name="group1" required /><br/>
-            <div htmlFor="Anatom"> סוג הטיפול: לק ג'ל + מניקור + מבנה אנטמי
-                <br/>
-                מחיר הטיפול: 150 ש"ח
-                <br/>
-                משך הטיפול: שעתיים
+            <div className='alignment'>
+                <div className='alignmentAnatom'>
+                    <label htmlFor="Anatom"> סוג הטיפול: לק ג'ל + מניקור + מבנה אנטמי
+                        <br/>
+                        מחיר הטיפול: 120 ש"ח
+                        <br/>
+                        משך הטיפול: שעתיים
+                    </label>
+                </div>
+                <input id="Anatom" type="radio" value="Anatom" name="group1" required />
             </div>
-            <input id="Anatom" type="radio" value="Anatom" name="group1" required /><br/>
-            <button type="submit" id="continueBtn" onClick={handleTreatment}>Continue to choose a date</button>
-        </form>
+            <div className='alignment'>
+                <div className='alignmentmilui'>
+                    <label htmlFor="milui"> סוג הטיפול: מילוי בג'ל בנייה + מבנה אנטמי
+                        <br/>
+                        מחיר הטיפול: 140 ש"ח
+                        <br/>
+                        משך הטיפול: שעתיים וחצי
+                    </label>
+                </div>
+                <input id="milui" type="radio" value="milui" name="group1" required />
+            </div>
+            <div className='alignment'>
+                <div className='alignmentBnia'> 
+                    <label htmlFor="Bnia"> סוג הטיפול: בנייה בג'ל
+                        <br/>
+                        מחיר הטיפול: 220 ש"ח
+                        <br/>
+                        משך הטיפול: שלוש שעות
+                    </label>
+                </div>
+                <input id="Bnia" type="radio" value="Bnia" name="group1" required />
+            </div>
+        <button type="submit" id="continueBtn" onClick={handleTreatment}>המשך לבחירת תאריך</button>
+    </form>
     <a href="/myAppointments">
-        <button>My Appointments</button>
+        <button>התורים שלי</button>
     </a>
-    <Footer/>
+        <div className="imageContainer">
+        <img src={Hand} width='300' height='250'></img>
+        </div>
+    </div>
    </>
     )
 };
