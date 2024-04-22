@@ -38,10 +38,10 @@ function AppointmentType(){
                 setAppointmentData({treatment: " סוג הטיפול: לק ג'ל + מניקור + מבנה אנטומי", treatmentLong: 2});
               }
               else if (selectedValue === 'milui') {
-                setAppointmentData({treatment: " סוג הטיפול: מילוי בג'ל בניהה + מבנה אנטומי", treatmentLong: 2.5});
+                setAppointmentData({treatment: " סוג הטיפול: מילוי בג'ל בנייה + מבנה אנטומי", treatmentLong: 2});
               }
               else if (selectedValue === 'Anatom') {
-                setAppointmentData({treatment: "סוג הטיפול: בנייה בג'ל", treatmentLong: 3});
+                setAppointmentData({treatment: "סוג הטיפול: בנייה בג'ל", treatmentLong: 2.5});
               }
               navigate('/appointmentDate', { replace: true });
         }else{
@@ -84,7 +84,7 @@ function AppointmentType(){
                         <br/>
                         מחיר הטיפול: 140 ש"ח
                         <br/>
-                        משך הטיפול: שעתיים וחצי
+                        משך הטיפול: שעתיים
                     </label>
                 </div>
                 <input id="milui" type="radio" value="milui" name="group1" required />
@@ -95,7 +95,7 @@ function AppointmentType(){
                         <br/>
                         מחיר הטיפול: 220 ש"ח
                         <br/>
-                        משך הטיפול: שלוש שעות
+                        משך הטיפול: שעתיים וחצי
                     </label>
                 </div>
                 <input id="Bnia" type="radio" value="Bnia" name="group1" required />
@@ -106,7 +106,7 @@ function AppointmentType(){
         <button>התורים שלי</button>
     </a>
         <div className="imageContainer">
-        <img src={Hand} width='300' height='250'></img>
+            <img src={Hand} width='300' height='250'></img>
         </div>
     </div>
    </>

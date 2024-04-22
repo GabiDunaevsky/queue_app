@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { useAppointment } from '../components/AppointmentContext';
 import  WelcomeMessage  from '../components/WelcomeGuest';
 import Header from '../components/Header';
-import Footer from '../components/Footer';
+import '../cssFiles/AppointmentDate.css'
 
 
 function AppointmentDate(){
@@ -25,7 +25,7 @@ function AppointmentDate(){
                 const day = dateParts[2];
                 const month = dateParts[1];
                 const year = dateParts[0];
-                document.getElementById('selectedDateDis').innerText = 'Picked Date: ' + day + '/' + month + '/' + year;
+                document.getElementById('selectedDateDis').innerText =  day + '/' + month + '/' + year + " :" + " התאריך שנבחר";
             }
         };
         checkAuth();
@@ -70,16 +70,19 @@ function AppointmentDate(){
     <>
         <Header/>
         <WelcomeMessage Type ={', בחר תאריך עבור הטיפול'}/>
-        <form>
-        <div>
-            <label htmlFor="datepicker">Pick a date:</label>
-            <input type="date" id="datepicker" name="datepicker" required onInput={(event) => checkDayOfWeek(event)}/>
-        </div>
-        {appointmentDetails}<br/>
-        <label id="selectedDateDis"></label><br/><br/>
-        <button type="submit" onClick={handleAppointment}>Continue</button>
+        <div className="pickContainer">
+            <form>
+            <div>
+                <input type="date" id="datepicker" name="datepicker" required onInput={(event) => checkDayOfWeek(event)}/>
+            </div>
+            <label >
+                {appointmentDetails}<br/>
+            </label>
+            <label id="selectedDateDis"></label><br/><br/>
+            <button type="submit" onClick={handleAppointment}>המשך לבחירת שעה</button>
         </form>
-        <Footer/>
+
+        </div>
     </>
     )
 };

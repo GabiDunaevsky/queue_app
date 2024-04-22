@@ -3,7 +3,8 @@ import React, { useState,useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import  WelcomeMessage  from '../components/WelcomeGuest';
 import Header from '../components/Header';
-import Footer from '../components/Footer';
+import '../cssFiles/AppointmentTime.css'
+import Hand from '../assets/images/Logos/decoration2Home.png';
 
 function AppointmentTime(){
     const navigate = useNavigate();
@@ -51,20 +52,37 @@ function AppointmentTime(){
             return;
         }
     }
+
+    const timeFormat = (hour) =>{
+        const wholeHours = Math.floor(hour);
+        const minutes = (hour - wholeHours) * 60;
+        const formattedHours = String(wholeHours).padStart(2, "0");
+        const formattedMinutes = String(minutes).padStart(2, "0");
+        return `${formattedHours}:${formattedMinutes}`;
+    }
     return(
         <>
         <Header/>
         <WelcomeMessage Type ={', בחר את שעת הטיפול'}/>
-        <form>
-                {hours.map((hour, index) => (
-                    <div key={index}>
-                        <input type="radio" id={`hour${index}`} name="appointmentTime" value={hour} required/>
-                        <label htmlFor={`hour${index}`}>{hour}</label>
-                    </div>
-                ))}
-                <button type='submit' onClick={handleDetails}>Continue to Confirm</button>
-            </form>
-            <Footer/>
+        <div className="houresContainer">
+            {hours && hours.length > 0 ? (
+                 <form>
+                 {hours.map((hour, index) => (
+                     <div key={index}>
+                         <label htmlFor={`hour${index}`}>{timeFormat(hour)}</label>
+                         <input type="radio" id={`hour${index}`} name="appointmentTime" value={hour} required/>
+                     </div>
+                        ))}
+                        <button type='submit' onClick={handleDetails}>המשך לאישור התור</button>
+                ,</form>
+            ) : (
+                <p>🙁אין תורים זמינים</p>
+
+            )}
+            <div className="imageContainerTime">
+                <img src={Hand} width='480' height='384'></img>
+            </div>
+        </div>
         </>
     )
 }

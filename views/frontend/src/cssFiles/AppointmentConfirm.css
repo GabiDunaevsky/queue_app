@@ -1,0 +1,33 @@
+.containerApoointmentData{
+    background-color: rgb(239, 222, 205);
+    height: 71.76vh;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.containerApoointmentData p{
+    text-align: right;
+    font-style: italic;
+    font-size: 1.2rem;
+    text-shadow: 3px 3px 5px rgb(180, 153, 78);
+}
+
+.containerApoointmentData form{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.containerApoointmentData button{
+    border-radius: 40px;
+    font-size: 1.5rem;
+    padding: 5px;
+    margin-bottom: 35px;
+    background-color: rgb(239, 222, 205);
+}
+.containerApoointmentData button:hover{
+    cursor: pointer;
+    font-size: 1.55rem;
+    background-color: hsl(30, 52%, 92%);
+}

@@ -81,7 +81,6 @@ function MyAppointments(){
             <button>חזור לקביעת תור</button>
 
         </a>
-        <Footer/>
     </>
     )
 };
