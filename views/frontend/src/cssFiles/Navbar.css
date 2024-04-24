@@ -6,9 +6,13 @@
    margin: 0px;
    background-color: transparent;
    display: flex;
+   flex-direction: center;
    justify-content: center;
 }
 .navbar .menu-icon i{
+    position: fixed;
+    top: 0;
+    left: 0;
     font-size: 1.5em;
 }
 .navbar .menu-icon i:hover{
@@ -18,7 +22,7 @@
     color: black;
     text-decoration: none;
     padding: 30px;
-    padding-right: 50px;
+    padding-right: 85px;
     display: block;
     text-align: center;
     font-style: italic;
@@ -30,8 +34,6 @@
 }
 
 .nav-menu {
-    display: flex;
-    flex-direction: column;
     width: 15%;
     min-height: 60vh;
     position: fixed;
@@ -40,10 +42,14 @@
     opacity: 1;
     transition: all 0.5s ease;
     font-style: italic;
+    justify-content: flex-start;
+    
   }
 
   .nav-menu.active {
     padding: 10px;
+    flex-direction: column-reverse;
+    margin: 10px;
     background: transparent;
     left: 0;
     opacity: 1;

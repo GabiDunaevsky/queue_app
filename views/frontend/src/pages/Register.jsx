@@ -16,11 +16,11 @@ function Register(){
 
     const passportValidation = () =>{
          if (password.length < 7 ) {
-            setError('Password must be at least 7 characters long');
+            setError('הסיסמא חייבת להיות באורך 7 לפחות');
             return false;
         }
         if(!/\d/.test(password) || !/[a-z]/.test(password) || !/[A-Z]/.test(password)){
-            setError('Password must include numbers and both lowercase and uppercase letters');
+            setError('הסיסמא חייבת לכלות מספרים, אותיות גדולות ואותיות קטנות');
             return false;
         }
         return true;
@@ -65,24 +65,24 @@ function Register(){
                 <HeartLogo className='logo'/>
                 <form onSubmit={handleSubmit} className='register'>
                     <div className='registerInputs'>
-                        <input type="text" id="firstName" name="firstName" placeholder='First name' value={firstName} onChange={(e) => setFirstName(e.target.value)} required />
+                        <input type="text" id="firstName" name="firstName" placeholder='שם פרטי' value={firstName} onChange={(e) => setFirstName(e.target.value)} required />
                     </div>
                     <div className='registerInputs'>
-                        <input type="text" id="lastName" name="lastName" placeholder='Last name' value={lastName} onChange={(e) => setLastName(e.target.value)} required />
+                        <input type="text" id="lastName" name="lastName" placeholder='שם משפחה' value={lastName} onChange={(e) => setLastName(e.target.value)} required />
                     </div>
                     <div className='registerInputs'>
-                        <input type="email" id="username" name="username" placeholder='Email' value={email} onChange={(e) => setEmail(e.target.value)} required />
+                        <input type="email" id="username" name="username" placeholder='דוא"ל' value={email} onChange={(e) => setEmail(e.target.value)} required />
                     </div>
                     <div className='registerInputs'> 
-                        <input type={visible? "text" : "password"} id="password" name="password" placeholder='Password' className='password' value={password} onChange={(e) => setPassword(e.target.value)} required />
                         <div className='toSeeReg' onClick={()=> setVisible(!visible)}>
                             <i className={visible?  'fa-regular fa-eye' : 'fa-solid fa-eye-slash'}/>
                         </div>
+                        <input type={visible? "text" : "password"} id="password" name="password" placeholder='סיסמא' className='password' value={password} onChange={(e) => setPassword(e.target.value)} required />
                     </div>
                     <div className='registerInputs'>
-                        <input type="tel" id="phonenumber" name="phonenumber" placeholder='Phone Number' value={phoneNumber} onChange={(e) => setPhoneNumber(e.target.value)} required />
+                        <input type="tel" id="phonenumber" name="phonenumber" placeholder='מספר פלאפון' value={phoneNumber} onChange={(e) => setPhoneNumber(e.target.value)} required />
                     </div><br />
-                    <button type="submit">Register</button>
+                    <button type="submit">הרשמה</button>
                 </form>
                 {error && <p style={{ color: 'red' }}>{error}</p>}
                 <br></br>

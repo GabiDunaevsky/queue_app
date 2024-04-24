@@ -30,7 +30,7 @@ const Header = () => {
     return (
         <header className="header">
             <a href="/logout">
-            <button className="left-button">LogOut</button>
+            <button className="left-button">יציאה</button>
             </a>
             <HeartLogo/>
             <a href="/appointmentType">

@@ -2,7 +2,8 @@ import React, { useState,useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import  WelcomeMessage  from '../components/WelcomeGuest';
 import Header from '../components/Header';
-import Footer from '../components/Footer';
+import '../cssFiles/MyAppointments.css';
+import Hand from '../assets/images/Logos/decoration2Home.png';
 
 function MyAppointments(){
     const [ appointments, setAppointments ] = useState([]);
@@ -62,25 +63,26 @@ function MyAppointments(){
     <>
         <Header/>
         <WelcomeMessage Type ={', רשימת התורים העתדיים'}/>
-        {appointments && appointments.length > 0 ? (
-        <ul>
-          {appointments.map(queue => (
-            <li key={queue.id}>
-              {queue.date} - {queue.startTime}
-              <form onSubmit={(e) => { e.preventDefault(); handleDelete(queue.id); }}>
-                <button type="submit">בטל</button>
-              </form>
-            </li>
-          ))}
-        </ul>
-      ) : (
-        <p>אין תורים עתדיים</p>
-      )}
-      {error && <p style={{ color: 'red' }}>{error}</p>}
-        <a href='/appointmentType'>
-            <button>חזור לקביעת תור</button>
-
-        </a>
+        <div className="myAppointmentsContainer">
+            {appointments && appointments.length > 0 ? (
+            <ul>
+            {appointments.map(queue => (
+                <li key={queue.id}>
+                <form onSubmit={(e) => { e.preventDefault(); handleDelete(queue.id); }}>
+                    <button type="submit">בטלי</button>
+                </form>
+                {queue.startTime} - {queue.date} 
+                </li>
+                ))}
+                </ul>
+            ) : (
+                <p>אין תורים עתדיים</p>
+            )}
+            {error && <p style={{ color: 'red' }}>{error}</p>}
+            <div className="imageContainer">
+                <img src={Hand} width='300' height='250'></img>
+            </div>
+        </div>
     </>
     )
 };

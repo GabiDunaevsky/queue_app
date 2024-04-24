@@ -36,9 +36,9 @@ try{
 // Define the formatTime function
 function formatTime(time) {
     if(time - Math.floor(time) > 0){
-        return Math.floor(time) +':30';
+        return Math.floor(String(time).padStart(2, "0")) +':30';
     }else{
-        return time + ':00';
+        return String(time).padStart(2, "0") + ':00';
     }
 }
 

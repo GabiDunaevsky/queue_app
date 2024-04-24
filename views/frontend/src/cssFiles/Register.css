@@ -29,6 +29,7 @@
     background-color: transparent;
     border: none;
     font-size: 1.4rem;
+    text-align: right;
 }
 .register input:focus {
     outline: none;
@@ -41,6 +42,7 @@
     color: black;
     padding: 0;
     font-size: 1.05rem;
+    margin-top: 2px;
 }
 .register button:hover{
     cursor: pointer;

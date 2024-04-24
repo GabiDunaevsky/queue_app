@@ -27,6 +27,24 @@ function Home(){
     
         return () => clearTimeout(timeout);
       }, []);
+      useEffect(() => {
+        const handleScroll = () => {
+            const nav = document.querySelector('.nav');
+            if (nav) {
+                if (window.scrollY > 0) {
+                    nav.style.top = `${window.scrollY}px`;
+                } else {
+                    nav.style.top = '0';
+                }
+            }
+        };
+
+        window.addEventListener('scroll', handleScroll);
+
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+        };
+    }, []);
 
 
     return(

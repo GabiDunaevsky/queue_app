@@ -33,7 +33,7 @@ function AppointmentType(){
         if (selectedTreatment) {
             const selectedValue = selectedTreatment.value;
             if (selectedValue === 'lakGel') {
-                setAppointmentData({treatment: "סוג הטיפול: לק ג'ל", treatmentLong: 1.5});
+                setAppointmentData({treatment: " סוג הטיפול: לק ג'ל + מניקור ללא מבנה אנטומי", treatmentLong: 1.5});
               } else if (selectedValue === 'Anatom') {
                 setAppointmentData({treatment: " סוג הטיפול: לק ג'ל + מניקור + מבנה אנטומי", treatmentLong: 2});
               }
@@ -54,7 +54,7 @@ function AppointmentType(){
     return(
     <>
     <Header/>
-    <WelcomeMessage Type ={', בחר טיפול בבקשה'} className="msgHead"/>
+    <WelcomeMessage Type ={', בחרי טיפול בבקשה'} className="msgHead"/>
     <div className="containerAppointmentType">
         <form>
             <div className='alignment'>
@@ -100,7 +100,7 @@ function AppointmentType(){
                 </div>
                 <input id="Bnia" type="radio" value="Bnia" name="group1" required />
             </div>
-        <button type="submit" id="continueBtn" onClick={handleTreatment}>המשך לבחירת תאריך</button>
+        <button type="submit" id="continueBtn" onClick={handleTreatment}>המשיכי לבחירת תאריך</button>
     </form>
     <a href="/myAppointments">
         <button>התורים שלי</button>

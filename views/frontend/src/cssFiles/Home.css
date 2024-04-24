@@ -8,6 +8,7 @@
     background-size: cover !important;
     background-attachment: fixed !important;
     height: 100vh; 
+    position: relative;
 }
 .homeConrent{ 
     display: flex;
@@ -112,7 +113,8 @@
 }
 .contacrOps .icon:hover {
     color: rgb(0, 0, 0);
-    font-size: 4em;
+    font-size: 3.1em;
+    color: blueviolet;
 }
 .contacrOps span{
     font-size: 1.2rem;
@@ -123,8 +125,8 @@
 }
 .contacrOps span:hover {
     color: rgb(0, 0, 0);
-    font-size: 1.5em;
     font-weight: bold;
+    color: blueviolet;
 }
 
 .hoursWorkTxt{
@@ -139,4 +141,5 @@
     margin: 0;color: rgb(0, 0, 0);
     font-size: 1.9rem;
 }
+
 

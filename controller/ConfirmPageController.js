@@ -6,12 +6,18 @@ const handleNewQueue = async (req, res) => {
     date: Obj.date,
     $or: [
         {
-            startTime: { $lte: Obj.startTime }, // Check if your start time is before or equal to the existing queue's end time
-            endTime: { $gte: Obj.startTime }   // Check if your start time is after or equal to the existing queue's start time
+            startTime: { $lt: Obj.startTime }, // Check if your start time is before or equal to the existing queue's end time
+            endTime: { $gt: Obj.startTime }   // Check if your start time is after or equal to the existing queue's start time
         },
         {
-            startTime: { $lte: Obj.endTime },   // Check if your end time is before or equal to the existing queue's end time
-            endTime: { $gte: Obj.endTime }      // Check if your end time is after or equal to the existing queue's start time
+            startTime: { $lt: Obj.endTime },   // Check if your end time is before or equal to the existing queue's end time
+            endTime: { $gt: Obj.endTime }      // Check if your end time is after or equal to the existing queue's start time
+        },
+        {
+            startTime: Obj.startTime
+        },
+        {
+            endTime: Obj.endTime
         }
     ]
 });
@@ -28,7 +34,7 @@ const handleNewQueue = async (req, res) => {
             "startTime":  Obj.startTime,
             "endTime":  Obj.endTime
         });
-        res.send('sucess to add appointment');
+        res.send('התור נוסף לרשימת התורים בהצלחה');
     } catch (err) {
         console.log(err);
     }

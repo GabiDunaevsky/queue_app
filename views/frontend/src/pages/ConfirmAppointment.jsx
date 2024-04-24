@@ -89,9 +89,9 @@ function ConfirmAppointment(){
     return(
     <>
         <Header/>
-        <WelcomeMessage Type ={', אנא אשר את פרטי התור'}/>
+        <WelcomeMessage Type ={', אנא אשרי את פרטי התור'}/>
         <div className="containerApoointmentData">
-            <div>
+            <div className='textDetailsConfirm'>
                 {appointmentDetails && ( 
                     <>
                         <p>{dateformat(appointmentDetails.date)}</p>
@@ -105,11 +105,8 @@ function ConfirmAppointment(){
             {message && <p style={{color: 'red'}}>{message}</p>}
             <br />
             <form onSubmit={handleSubmit}>
-                <button>אשר את הפרטים וקבע תור</button>
+                <button>אשרי את הפרטים ותקבעי תור</button>
             </form>
-            <a href='/appointmentType'>
-                <button>חזרה לקביעת תור</button>
-            </a>
             <div className="imageContainer">
                 <img src={Hand} width='300' height='250'></img>
             </div>

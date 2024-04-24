@@ -3,7 +3,8 @@ import { useNavigate } from 'react-router-dom';
 import { useAppointment } from '../components/AppointmentContext';
 import  WelcomeMessage  from '../components/WelcomeGuest';
 import Header from '../components/Header';
-import '../cssFiles/AppointmentDate.css'
+import '../cssFiles/AppointmentDate.css';
+import Hand from '../assets/images/Logos/decoration2Home.png';
 
 
 function AppointmentDate(){
@@ -69,7 +70,7 @@ function AppointmentDate(){
     return(
     <>
         <Header/>
-        <WelcomeMessage Type ={', בחר תאריך עבור הטיפול'}/>
+        <WelcomeMessage Type ={', בחרי תאריך עבור הטיפול'}/>
         <div className="pickContainer">
             <form>
             <div>
@@ -79,8 +80,11 @@ function AppointmentDate(){
                 {appointmentDetails}<br/>
             </label>
             <label id="selectedDateDis"></label><br/><br/>
-            <button type="submit" onClick={handleAppointment}>המשך לבחירת שעה</button>
+            <button type="submit" onClick={handleAppointment}>המשיכי לבחירת שעה</button>
         </form>
+        <div className="imageContainer">
+            <img src={Hand} width='300' height='250'></img>
+        </div>
 
         </div>
     </>

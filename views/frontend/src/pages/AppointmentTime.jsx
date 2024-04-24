@@ -63,7 +63,7 @@ function AppointmentTime(){
     return(
         <>
         <Header/>
-        <WelcomeMessage Type ={', בחר את שעת הטיפול'}/>
+        <WelcomeMessage Type ={', בחרי את שעת הטיפול'}/>
         <div className="houresContainer">
             {hours && hours.length > 0 ? (
                  <form>
@@ -73,14 +73,14 @@ function AppointmentTime(){
                          <input type="radio" id={`hour${index}`} name="appointmentTime" value={hour} required/>
                      </div>
                         ))}
-                        <button type='submit' onClick={handleDetails}>המשך לאישור התור</button>
+                        <button type='submit' onClick={handleDetails}>המשיכי לאישור התור</button>
                 ,</form>
             ) : (
                 <p>🙁אין תורים זמינים</p>
 
             )}
             <div className="imageContainerTime">
-                <img src={Hand} width='480' height='384'></img>
+                <img src={Hand} width='250' height='200'></img>
             </div>
         </div>
         </>

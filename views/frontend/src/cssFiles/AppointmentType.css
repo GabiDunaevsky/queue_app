@@ -1,6 +1,6 @@
 .containerAppointmentType{
     background-color: rgb(239, 222, 205);
-    height: 71.76vh;
+    min-height: 71.76vh;
     display: flex;
     align-items: center;
     flex-direction: column;

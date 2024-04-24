@@ -43,7 +43,11 @@ function Login(props){
                 password: password
             }),
       });
-        const message = await response.json();
+        // console.log(response);
+        // const message = await response.json();
+        // console.log(response);
+        const responseBody = await response.text();
+        const message = responseBody ? JSON.parse(responseBody) : null;
         if(response.ok) {
           props.updateLoggedInStatus(true);
         }else{
@@ -60,18 +64,18 @@ function Login(props){
         <HeartLogo className='logo'/>
           <form className='login' onSubmit={handleSubmit}>
             <div className='LoginInputs'>
-              <input type="text" id="username"  placeholder='Email' value={username} onChange={(e) => setUsername(e.target.value)} required/>
+              <input type="text" id="username"  placeholder='דוא"ל' value={username} onChange={(e) => setUsername(e.target.value)} required/>
             </div>
             <div className='LoginInputs'>
-              <input type={visible? "text" : "password"} id="password" placeholder='Password' className='password' value={password} onChange={(e) => setPassword(e.target.value)} required/>
               <div className='toSee' onClick={()=> setVisible(!visible)}>
                   <i className={visible?  'fa-regular fa-eye' : 'fa-solid fa-eye-slash'}/>
               </div>
+              <input type={visible? "text" : "password"} id="password" placeholder='סיסמא' className='password' value={password} onChange={(e) => setPassword(e.target.value)} required/>
             </div>
             {errorMessage && <p style={{ color: 'red' }}>{errorMessage}</p>}
-            <button className='signinB' type="submit">LOGIN</button>
+            <button className='signinB' type="submit">כניסה</button>
           </form>
-          <a href='/register'>Sign-up</a>
+          <a href='/register'>עוד לא נרשמת? לחצי כאן</a>
           <br></br>
           <BackHome/>
         </div>
