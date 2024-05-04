@@ -16,6 +16,7 @@ This project is a Nail Appointment Manager app designed to streamline the appoin
 ### Before Authentication
 
 1. **Landing Page**: The homepage featuring sections for setting appointments, browsing nail works, and contacting the business.
+![Landing Page](C:\Users\gabi\Desktop\appImg\home.png)
 2. **My Works Page**: Showcase of nail images with a link to the business's Instagram page.
 3. **Login Page**: User authentication page for logging in with existing credentials.
 4. **Register Page**: User registration page for creating a new account.
