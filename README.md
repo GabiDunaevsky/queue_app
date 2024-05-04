@@ -19,11 +19,10 @@ This project is a Nail Appointment Manager app designed to streamline the appoin
 <img width="450" alt="image" src="https://github.com/GabiDunaevsky/queue_app/blob/main/views/frontend/src/assets/ImgOfPages/home.png"> <img width="450" alt="image" src="https://github.com/GabiDunaevsky/queue_app/blob/main/views/frontend/src/assets/ImgOfPages/homeNavBar.png">
 <img width="450" alt="image" src="https://github.com/GabiDunaevsky/queue_app/blob/main/views/frontend/src/assets/ImgOfPages/homeAboutme.png"> <img width="450" height ="150" alt="image" src="https://github.com/GabiDunaevsky/queue_app/blob/main/views/frontend/src/assets/ImgOfPages/homeConract.png">
 2. **My Works Page**: Showcase of nail images with a link to the business's Instagram page.
-   ```
-  <img width="450" alt="image" src="https://github.com/GabiDunaevsky/queue_app/blob/main/views/frontend/src/assets/ImgOfPages/myWorksPage.png">
-   ```
+   
+   &nbsp;&nbsp;&nbsp;&nbsp;<img width="450" alt="image" src="https://github.com/GabiDunaevsky/queue_app/blob/main/views/frontend/src/assets/ImgOfPages/myWorksPage.png">
   
-3. **Login Page**: User authentication page for logging in with existing credentials.
+4. **Login Page**: User authentication page for logging in with existing credentials.
    
   <img width="450" alt="image" src="https://github.com/GabiDunaevsky/queue_app/blob/main/views/frontend/src/assets/ImgOfPages/LoginPage.png">
   
