@@ -19,24 +19,24 @@ This project is a Nail Appointment Manager app designed to streamline the appoin
 <img width="450" alt="image" src="https://github.com/GabiDunaevsky/queue_app/blob/main/views/frontend/src/assets/ImgOfPages/home.png"> <img width="450" alt="image" src="https://github.com/GabiDunaevsky/queue_app/blob/main/views/frontend/src/assets/ImgOfPages/homeNavBar.png">
 <img width="450" alt="image" src="https://github.com/GabiDunaevsky/queue_app/blob/main/views/frontend/src/assets/ImgOfPages/homeAboutme.png"> <img width="450" height ="150" alt="image" src="https://github.com/GabiDunaevsky/queue_app/blob/main/views/frontend/src/assets/ImgOfPages/homeConract.png">
 2. **My Works Page**: Showcase of nail images with a link to the business's Instagram page.
-<img width="450" alt="image" src="https://github.com/GabiDunaevsky/queue_app/blob/main/views/frontend/src/assets/ImgOfPages/myWorksPage.png">
+  <img width="450" alt="image" src="https://github.com/GabiDunaevsky/queue_app/blob/main/views/frontend/src/assets/ImgOfPages/myWorksPage.png">
 3. **Login Page**: User authentication page for logging in with existing credentials.
-<img width="450" alt="image" src="https://github.com/GabiDunaevsky/queue_app/blob/main/views/frontend/src/assets/ImgOfPages/LoginPage.png">
+  <img width="450" alt="image" src="https://github.com/GabiDunaevsky/queue_app/blob/main/views/frontend/src/assets/ImgOfPages/LoginPage.png">
 4. **Register Page**: User registration page for creating a new account.
-<img width="450" alt="image" src="https://github.com/GabiDunaevsky/queue_app/blob/main/views/frontend/src/assets/ImgOfPages/registerPage.png">
+  <img width="450" alt="image" src="https://github.com/GabiDunaevsky/queue_app/blob/main/views/frontend/src/assets/ImgOfPages/registerPage.png">
 
 ### After Authentication
 
 1. **Appointment Type Page**: Selection of appointment types with the option to view existing appointments.
-<img width="450" alt="image" src="https://github.com/GabiDunaevsky/queue_app/blob/main/views/frontend/src/assets/ImgOfPages/AppontmentTypePage.png">
-3. **My Appointments Page**: Display of upcoming appointments with the option to cancel.
-<img width="450" alt="image" src="https://github.com/GabiDunaevsky/queue_app/blob/main/views/frontend/src/assets/ImgOfPages/myAppointmentsPage.png">
-5. **Appointment Date Page**: Selection of appointment dates.
-<img width="450" alt="image" src="https://github.com/GabiDunaevsky/queue_app/blob/main/views/frontend/src/assets/ImgOfPages/appointmentDatePage.png">
-7. **Appointment Time Page**: Selection of available appointment times.
-<img width="450" alt="image" src="https://github.com/GabiDunaevsky/queue_app/blob/main/views/frontend/src/assets/ImgOfPages/appointmentTypePage.png">
-9. **Confirm Page**: Review of appointment details before final confirmation.
-<img width="450" alt="image" src="https://github.com/GabiDunaevsky/queue_app/blob/main/views/frontend/src/assets/ImgOfPages/confirm page.png">
+  <img width="450" alt="image" src="https://github.com/GabiDunaevsky/queue_app/blob/main/views/frontend/src/assets/ImgOfPages/AppontmentTypePage.png">
+2. **My Appointments Page**: Display of upcoming appointments with the option to cancel.
+  <img width="450" alt="image" src="https://github.com/GabiDunaevsky/queue_app/blob/main/views/frontend/src/assets/ImgOfPages/myAppointmentsPage.png">
+3. **Appointment Date Page**: Selection of appointment dates.
+  <img width="450" alt="image" src="https://github.com/GabiDunaevsky/queue_app/blob/main/views/frontend/src/assets/ImgOfPages/appointmentDatePage.png">
+4. **Appointment Time Page**: Selection of available appointment times.
+  <img width="450" alt="image" src="https://github.com/GabiDunaevsky/queue_app/blob/main/views/frontend/src/assets/ImgOfPages/appointmentTypePage.png">
+5. **Confirm Page**: Review of appointment details before final confirmation.
+  <img width="450" alt="image" src="https://github.com/GabiDunaevsky/queue_app/blob/main/views/frontend/src/assets/ImgOfPages/confirm page.png">
 
 ## Architecture
 
