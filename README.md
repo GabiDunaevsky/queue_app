@@ -16,17 +16,19 @@ This project is a Nail Appointment Manager app designed to streamline the appoin
 ### Before Authentication
 
 1. **Landing Page**: The homepage featuring sections for setting appointments, browsing nail works, and contacting the business.
-<img width="450" alt="image" src="https://github.com/GabiDunaevsky/queue_app/blob/main/views/frontend/src/assets/ImgOfPages/home.png"> <img width="450" alt="image" src="https://github.com/GabiDunaevsky/queue_app/blob/main/views/frontend/src/assets/ImgOfPages/homeNavBar.png">
-<img width="450" alt="image" src="https://github.com/GabiDunaevsky/queue_app/blob/main/views/frontend/src/assets/ImgOfPages/homeAboutme.png"> <img width="450" height ="150" alt="image" src="https://github.com/GabiDunaevsky/queue_app/blob/main/views/frontend/src/assets/ImgOfPages/homeConract.png">
-2. **My Works Page**: Showcase of nail images with a link to the business's Instagram page.
+  &nbsp;<img width="450" alt="image" src="https://github.com/GabiDunaevsky/queue_app/blob/main/views/frontend/src/assets/ImgOfPages/home.png">
+  &nbsp;<img width="450" alt="image" src="https://github.com/GabiDunaevsky/queue_app/blob/main/views/frontend/src/assets/ImgOfPages/homeNavBar.png">
+  &nbsp;<img width="450" alt="image" src="https://github.com/GabiDunaevsky/queue_app/blob/main/views/frontend/src/assets/ImgOfPages/homeAboutme.png">
+  &nbsp;<img width="450" height ="150" alt="image" src="https://github.com/GabiDunaevsky/queue_app/blob/main/views/frontend/src/assets/ImgOfPages/homeConract.png">
+3. **My Works Page**: Showcase of nail images with a link to the business's Instagram page.
    
    &nbsp;<img width="450" alt="image" src="https://github.com/GabiDunaevsky/queue_app/blob/main/views/frontend/src/assets/ImgOfPages/myWorksPage.png">
   
-3. **Login Page**: User authentication page for logging in with existing credentials.
+4. **Login Page**: User authentication page for logging in with existing credentials.
    
    &nbsp;<img width="450" alt="image" src="https://github.com/GabiDunaevsky/queue_app/blob/main/views/frontend/src/assets/ImgOfPages/LoginPage.png">
   
-4. **Register Page**: User registration page for creating a new account.
+5. **Register Page**: User registration page for creating a new account.
    
    &nbsp;<img width="450" alt="image" src="https://github.com/GabiDunaevsky/queue_app/blob/main/views/frontend/src/assets/ImgOfPages/registerPage.png">
 
