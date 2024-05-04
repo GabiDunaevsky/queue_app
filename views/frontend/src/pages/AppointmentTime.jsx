@@ -80,7 +80,7 @@ function AppointmentTime(){
 
             )}
             <div className="imageContainerTime">
-                <img src={Hand} width='250' height='200'></img>
+                <img src={Hand} style={{ width: '65%', height: '10%' }} class="responsive-image"></img>
             </div>
         </div>
         </>

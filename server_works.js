@@ -49,8 +49,6 @@ app.use(session({
 app.use(passport.authenticate('session'));
 
 // routes
-app.use('/', require('./routes/Opening'));
-app.use('/myWorks', require('./routes/MyWorks'));
 app.use('/auth', require('./routes/Auth'));
 app.use('/register', require('./routes/Register'));
 app.use('/user', require('./routes/api/AuthUser'));

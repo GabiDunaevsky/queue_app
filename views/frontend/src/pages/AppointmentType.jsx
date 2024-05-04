@@ -106,7 +106,7 @@ function AppointmentType(){
         <button>התורים שלי</button>
     </a>
         <div className="imageContainer">
-            <img src={Hand} width='300' height='250'></img>
+            <img src={Hand}  style={{ width: '65%', height: '10%' }} class="responsive-image"></img>
         </div>
     </div>
    </>

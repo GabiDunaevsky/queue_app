@@ -24,5 +24,15 @@
     cursor: pointer;
     background-color: hsl(30, 52%, 90%);
 }
+@media screen and (max-width: 768px) {
+    .header {
+        padding: 10px;
+    }
+    .left-button,
+    .right-button {
+        padding: 6px 12px;
+        border-radius: 16px;
+    }
+}
 
   

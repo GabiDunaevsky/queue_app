@@ -108,7 +108,7 @@ function ConfirmAppointment(){
                 <button>אשרי את הפרטים ותקבעי תור</button>
             </form>
             <div className="imageContainer">
-                <img src={Hand} width='300' height='250'></img>
+                <img src={Hand} style={{ width: '45%', height: '30%' }} class="responsive-image"></img>
             </div>
         </div>
     </>

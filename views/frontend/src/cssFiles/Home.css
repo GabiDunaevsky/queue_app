@@ -63,7 +63,7 @@
 .txt{
     display: flex;
     flex-direction: column;
-    padding: 20px; 
+    margin-left: 130px;
     text-align: center;
 }
 .txt p {
@@ -113,7 +113,6 @@
 }
 .contacrOps .icon:hover {
     color: rgb(0, 0, 0);
-    font-size: 3.1em;
     color: blueviolet;
 }
 .contacrOps span{
@@ -141,5 +140,56 @@
     margin: 0;color: rgb(0, 0, 0);
     font-size: 1.9rem;
 }
-
-
+@media only screen and (max-width: 600px) {
+    .welcom1,
+    .welcom {
+      font-size: 2rem;
+    }
+  
+    .homepage-container {
+      margin-bottom: 20px;
+    }
+  
+    .BtnHome {
+      font-size: 0.8rem;
+      padding: 6px 12px;
+    }
+    .BtnHome:hover {
+        font-size: 1rem;
+        padding: 6px 12px;
+      }
+  
+    .headSecondSec {
+      font-size: 1.2rem;
+    }
+  
+    .txtB {
+      font-size: 0.6rem;
+      margin-bottom: 20px;
+    }
+  
+    .myWorks {
+      font-size: 0.7rem;
+      padding: 4px 8px;
+    }
+    .myWorks:hover{
+        font-size: 0.9rem;
+    }
+  
+    .contact .icon {
+      font-size: 1.2em;
+    }
+  
+    .contacrOps span {
+      font-size: 0.6rem;
+    }
+  
+    .hoursWorkTxt {
+      font-size: 0.8rem;
+    }
+  
+    .contact .hoursWorkTxt .headHours {
+      font-size: 1rem;
+    }
+  }
+ 

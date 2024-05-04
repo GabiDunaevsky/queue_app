@@ -83,7 +83,7 @@ function AppointmentDate(){
             <button type="submit" onClick={handleAppointment}>המשיכי לבחירת שעה</button>
         </form>
         <div className="imageContainer">
-            <img src={Hand} width='300' height='250'></img>
+            <img src={Hand} style={{ width: '65%', height: '30%' }} class="responsive-image"></img>
         </div>
 
         </div>

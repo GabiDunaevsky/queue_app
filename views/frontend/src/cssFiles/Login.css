@@ -3,6 +3,7 @@
     justify-content: center;
     align-items: center;
     height: 100vh;
+    background-color: rgb(239, 222, 205);
 }
 .login-div{
     display: flex;
@@ -58,4 +59,50 @@
 }
 .LoginInputs input:hover{
     font-size: 1.7rem;
+}
+@media only screen and (max-width: 600px) {
+
+    .LoginInputs, .signinB {
+        font-size: 2.5vw; /* Adjusted font size for mobile screens */
+        border-radius: 5vw; /* Adjusted border radius for mobile screens */
+        padding: 3vw; /* Adjusted padding for mobile screens */
+        border: 0.5vw solid black; /* Adjusted border width for mobile screens */
+        margin-bottom: 3vh; /* Adjusted margin for mobile screens */
+    }
+
+    .LoginInputs .password {
+        font-size: 2.3vw; /* Adjusted font size for mobile screens */
+    }
+
+    .LoginInputs input {
+        font-size: 2.5vw; /* Adjusted font size for mobile screens */
+    }
+
+    .toSee {
+        font-size: 2vw; /* Adjusted font size for mobile screens */
+        margin-top: 0.2vh; /* Adjusted margin for mobile screens */
+    }
+
+    .signinB {
+        padding: 2vw 6vw; /* Adjusted padding for mobile screens */
+    }
+    .signinB:hover {
+        font-size: 2.7vw; /* Adjusted font size for mobile screens */
+    }
+
+    .LoginInputs:hover {
+        background-color: hsl(30, 52%, 90%);
+    }
+
+    .LoginInputs input:hover {
+        font-size: 3vw; /* Adjusted font size for mobile screens */
+    }
+
+    /* Set background color for mobile screens */
+    .login-page {
+        background-color: rgb(239, 222, 205);
+    }
+    .login-div a{
+        font-size: 3.5vh;
+    }
 }

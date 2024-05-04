@@ -43,9 +43,6 @@ function Login(props){
                 password: password
             }),
       });
-        // console.log(response);
-        // const message = await response.json();
-        // console.log(response);
         const responseBody = await response.text();
         const message = responseBody ? JSON.parse(responseBody) : null;
         if(response.ok) {
@@ -59,9 +56,9 @@ function Login(props){
   };
 
   return (
-      <div className='login-page' style={{ backgroundColor: 'rgb(239, 222, 205)' }}>
+      <div className='login-page'>
         <div className='login-div'>
-        <HeartLogo className='logo'/>
+        <HeartLogo className='logo' width='80%' height='40%'/>
           <form className='login' onSubmit={handleSubmit}>
             <div className='LoginInputs'>
               <input type="text" id="username"  placeholder='דוא"ל' value={username} onChange={(e) => setUsername(e.target.value)} required/>

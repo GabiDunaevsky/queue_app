@@ -60,9 +60,9 @@ function Register(){
   };
     return(
 
-        <div className="registerPage" style={{ backgroundColor: 'rgb(239, 222, 205)'}}>
+        <div className="registerPage">
             <div className="registerContainer">
-                <HeartLogo className='logo'/>
+                <HeartLogo className='logo' width='23%' height='30%'/>
                 <form onSubmit={handleSubmit} className='register'>
                     <div className='registerInputs'>
                         <input type="text" id="firstName" name="firstName" placeholder='שם פרטי' value={firstName} onChange={(e) => setFirstName(e.target.value)} required />

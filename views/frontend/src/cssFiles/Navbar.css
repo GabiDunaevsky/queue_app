@@ -57,3 +57,34 @@
     z-index: 1;
     font-size: 1.3rem;
   }
+
+  @media only screen and (max-width: 600px) {
+    .navbar .nav-links {
+      padding: 20px; /* Adjusted padding for mobile screens */
+      padding-right: 10px; /* Adjusted padding-right for mobile screens */
+      font-size: 1rem; /* Adjusted font size for mobile screens */
+    }
+  
+    .navbar .menu-icon i {
+      font-size: 1.3em; /* Adjusted font size for mobile screens */
+    }
+  
+    .nav-menu {
+      width: 20%; /* Adjusted width for mobile screens */
+      min-height: 70vh; /* Adjusted min-height for mobile screens */
+      top: 10px; /* Adjusted top position for mobile screens */
+      font-size: 1rem; /* Adjusted font size for mobile screens */
+    }
+  
+    .nav-menu.active {
+      padding: 2px;
+      flex-direction: column-reverse;
+      margin: 2px;
+      background: transparent;
+      left: 0;
+      opacity: 1;
+      transition: all 1s ease;
+      z-index: 1;
+      font-size: 1rem; /* Adjusted font size for mobile screens */
+    }
+  }

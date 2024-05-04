@@ -45,3 +45,57 @@
     background-color: rgb(239, 222, 205);
     min-height: 20vh;
 }
+/* Media query for mobile screens */
+@media only screen and (max-width: 600px) {
+    .headerMyWorks {
+      height: auto; /* Adjust height automatically based on content */
+    }
+  
+    .examplePic {
+      min-height: auto; /* Adjust minimum height automatically based on content */
+    }
+  
+    .instagramFooter {
+      flex-direction: column; /* Stack footer items vertically */
+      text-align: center; /* Center align text */
+    }
+  
+    .instagramFooter a {
+      margin: 10px 0; /* Adjust margin for links */
+      margin-left: 0; /* Reset left margin */
+    }
+  
+    .instagramFooter .icon {
+      margin: 10px 0; /* Adjust margin for icons */
+      margin-right: 0; /* Reset right margin */
+    }
+  
+    .WoeksBtn {
+      min-height: auto; /* Adjust minimum height automatically based on content */
+    }
+  }
+  /* Media query for tablets */
+@media only screen and (min-width: 601px) and (max-width: 1024px) {
+    .headerMyWorks {
+      padding: 20px; /* Adjust padding */
+    }
+  
+    .examplePic {
+      min-height: 70vh; /* Adjust minimum height */
+    }
+  
+    .instagramFooter {
+      flex-direction: row; /* Reset to default */
+      justify-content: space-around; /* Space out items */
+      text-align: center; /* Center align text */
+    }
+  
+    .instagramFooter a, .instagramFooter .icon {
+      margin: 0; /* Reset margin */
+    }
+  
+    .WoeksBtn {
+      min-height: 15vh; /* Adjust minimum height */
+    }
+  }
+  

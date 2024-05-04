@@ -65,7 +65,7 @@ function Home(){
         </div>
         <div className="onBuis" id="section2">
             <div className="fanImg">
-                <img src={fanLogo} alt="" width='500' height='600'/>
+                <img src={fanLogo} alt="" style={{ width: '120%', height: '100%' }}/>
             </div>
             <div className="txt">
             <p className="headSecondSec">💕 קצת עליי</p>
@@ -81,7 +81,7 @@ function Home(){
             </div>
         </div>
         <div className="contact" style={{ backgroundColor: 'rgb(235, 248, 250)' }} id="section3"> 
-            <img src={Hand} width='300' height='250'></img>
+            <img src={Hand} style={{ width: '20%', height: '10%' }} alt="Hand Image" />
             <div className="contacrOps">
                 <a href='https://www.instagram.com/dananailsofficial?igsh=bjBkcGxqd3I2dXY4'> 
                 <FontAwesomeIcon icon={faInstagram} className="icon" />

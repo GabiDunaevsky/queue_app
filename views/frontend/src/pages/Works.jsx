@@ -21,7 +21,7 @@ function Works(){
     return(
     <>
     <header className="headerMyWorks">
-        <HeartLogo className='logo'/>
+        <HeartLogo className='logo' width='30%' height='500%'/>
     </header>
     <div className="examplePic">
       <img src={ImgExample1} alt="" height={HEIGTH} width={WIDTH} />

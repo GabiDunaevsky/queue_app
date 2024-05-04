@@ -6,12 +6,12 @@ const handleNewQueue = async (req, res) => {
     date: Obj.date,
     $or: [
         {
-            startTime: { $lt: Obj.startTime }, // Check if your start time is before or equal to the existing queue's end time
-            endTime: { $gt: Obj.startTime }   // Check if your start time is after or equal to the existing queue's start time
+            startTime: { $lt: Obj.startTime }, 
+            endTime: { $gt: Obj.startTime }  
         },
         {
-            startTime: { $lt: Obj.endTime },   // Check if your end time is before or equal to the existing queue's end time
-            endTime: { $gt: Obj.endTime }      // Check if your end time is after or equal to the existing queue's start time
+            startTime: { $lt: Obj.endTime }, 
+            endTime: { $gt: Obj.endTime }     
         },
         {
             startTime: Obj.startTime

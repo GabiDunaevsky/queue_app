@@ -80,7 +80,7 @@ function MyAppointments(){
             )}
             {error && <p style={{ color: 'red' }}>{error}</p>}
             <div className="imageContainer">
-                <img src={Hand} width='300' height='250'></img>
+                <img src={Hand}  style={{ width: '65%', height: '30%' }} class="responsive-image"></img>
             </div>
         </div>
     </>
