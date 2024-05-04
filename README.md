@@ -17,11 +17,11 @@ This project is a Nail Appointment Manager app designed to streamline the appoin
 
 1. **Landing Page**: The homepage featuring sections for setting appointments, browsing nail works, and contacting the business.
 
-  &nbsp;&nbsp;&nbsp;<img width="450" alt="image" src="https://github.com/GabiDunaevsky/queue_app/blob/main/views/frontend/src/assets/ImgOfPages/home.png">
-  &nbsp;&nbsp;&nbsp;<img width="450" alt="image" src="https://github.com/GabiDunaevsky/queue_app/blob/main/views/frontend/src/assets/ImgOfPages/homeNavBar.png">
-  &nbsp;&nbsp;&nbsp;<img width="450" alt="image" src="https://github.com/GabiDunaevsky/queue_app/blob/main/views/frontend/src/assets/ImgOfPages/homeAboutme.png">
-  &nbsp;&nbsp;&nbsp;<img width="450" height ="150" alt="image" src="https://github.com/GabiDunaevsky/queue_app/blob/main/views/frontend/src/assets/ImgOfPages/homeConract.png">
-  
+    &nbsp;&nbsp;<img width="450" alt="image" src="https://github.com/GabiDunaevsky/queue_app/blob/main/views/frontend/src/assets/ImgOfPages/home.png">
+    &nbsp;&nbsp;<img width="450" alt="image" src="https://github.com/GabiDunaevsky/queue_app/blob/main/views/frontend/src/assets/ImgOfPages/homeNavBar.png">
+    &nbsp;&nbsp;<img width="450" alt="image" src="https://github.com/GabiDunaevsky/queue_app/blob/main/views/frontend/src/assets/ImgOfPages/homeAboutme.png">
+    &nbsp;&nbsp;<img width="450" alt="image" src="https://github.com/GabiDunaevsky/queue_app/blob/main/views/frontend/src/assets/ImgOfPages/homeConract.png">
+    
 2. **My Works Page**: Showcase of nail images with a link to the business's Instagram page.
    
    &nbsp;<img width="450" alt="image" src="https://github.com/GabiDunaevsky/queue_app/blob/main/views/frontend/src/assets/ImgOfPages/myWorksPage.png">
