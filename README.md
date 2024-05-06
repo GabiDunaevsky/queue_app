@@ -84,8 +84,10 @@ To run the app locally, follow these steps:
 1. Clone the repository.
 2. Navigate to the project directory.
 3. Install dependencies using `npm install`.
-4. Start the server using `npm start`.
-5. Access the app in your browser at `http://localhost:port`.
+4. Start the sever by running `npm run dev`.
+5. Open a new terminal and nevigate to frontend directory.
+6. Start client side by using `npm start`.
+7. Access the app in your browser at `http://localhost:3000`.
 
 ## Conclusion
 
